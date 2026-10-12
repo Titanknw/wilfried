@@ -186,6 +186,8 @@
         Hire Me <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
       </a>
 
+      <button id="open-admin" type="button" class="hidden rounded-lg border border-white/10 px-3 py-2 text-xs font-semibold text-slate-300 transition hover:border-cyan-400/50 hover:text-cyan-200 sm:inline-flex" aria-label="Open admin dashboard">Admin</button>
+
       <button id="menu-btn" type="button"
               class="rounded-lg border border-white/10 p-2 text-slate-200 md:hidden"
               aria-label="Open navigation menu" aria-expanded="false"
@@ -201,6 +203,7 @@
         <a href="#skills" class="mobile-link text-sm text-slate-300">Skills</a>
         <a href="#projects" class="mobile-link text-sm text-slate-300">Projects</a>
         <a href="#contact" class="mobile-link text-sm text-slate-300">Contact / Hire Me</a>
+        <button id="open-admin-mobile" type="button" class="text-left text-sm text-cyan-300">Admin dashboard</button>
       </div>
     </div>
   </header>
@@ -717,6 +720,8 @@
           </article>
         </div>
 
+        <div id="admin-added-projects" class="mt-6 grid gap-6 lg:grid-cols-3"></div>
+
         <div class="mt-8 rounded-xl border border-amber-300/15 bg-amber-300/[.035] p-4 text-xs leading-6 text-slate-400">
           <span class="font-semibold text-amber-200">Portfolio note:</span>
           These cards describe project concepts and sample visualizations.
@@ -894,6 +899,50 @@
     </section>
   </main>
 
+  <!-- ADMIN DASHBOARD: separate overlay; public portfolio remains unchanged -->
+  <section id="admin-overlay" class="admin-hidden" aria-label="Portfolio admin dashboard">
+    <div class="admin-wrap">
+      <div class="flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <p class="font-mono text-xs tracking-[.2em] text-cyan-300">PRIVATE WORKSPACE</p>
+          <h2 class="mt-2 text-3xl font-bold text-white">Portfolio dashboard</h2>
+          <p class="admin-muted mt-2">Manage extra project cards saved in this browser.</p>
+        </div>
+        <button id="close-admin" type="button" class="admin-action admin-secondary">← Back to portfolio</button>
+      </div>
+
+      <div id="admin-login-card" class="admin-card">
+        <h3 class="text-xl font-bold text-white">Admin sign in</h3>
+        <p class="admin-muted mt-2">Front-end demo only. This password check is not secure authentication.</p>
+        <form id="admin-login-form">
+          <div class="admin-field"><label for="admin-password">Dashboard password</label><input id="admin-password" type="password" autocomplete="current-password" required placeholder="Enter password"></div>
+          <button class="admin-action admin-primary" type="submit">Sign in ↗</button>
+          <p id="admin-login-error" class="admin-hidden mt-3 text-sm text-rose-300">Incorrect password.</p>
+        </form>
+      </div>
+
+      <div id="admin-panel" class="admin-hidden">
+        <div class="admin-card">
+          <h3 class="text-xl font-bold text-white">Add a project or media</h3>
+          <p class="admin-muted mt-2">Use a public URL or a path such as videos/my-demo.mp4. A local file only previews in this browser and is not uploaded.</p>
+          <form id="admin-project-form">
+            <div class="admin-field"><label for="admin-p-title">Project title</label><input id="admin-p-title" required placeholder="e.g. VLAN segmentation lab"></div>
+            <div class="admin-field"><label for="admin-p-type">Media type</label><select id="admin-p-type"><option value="video">Video demonstration</option><option value="photo">Photo / screenshot</option><option value="doc">Document / lab notes</option></select></div>
+            <div class="admin-field"><label for="admin-p-file">Local preview file (optional)</label><input id="admin-p-file" type="file" accept="video/*,image/*,.pdf"></div>
+            <div class="admin-field"><label for="admin-p-url">Public file URL or repository path</label><input id="admin-p-url" placeholder="videos/network-lab-demo.mp4 or https://..."></div>
+            <div class="admin-field"><label for="admin-p-desc">Short description</label><textarea id="admin-p-desc" rows="3" required placeholder="What did you configure, test, or learn?"></textarea></div>
+            <p id="admin-file-hint" class="admin-muted mb-4">Choose a local file to preview it, or enter a path for permanent publishing.</p>
+            <button class="admin-action admin-primary" type="submit">Add project ↗</button>
+          </form>
+        </div>
+        <div class="admin-card">
+          <h3 class="text-xl font-bold text-white">Added projects</h3>
+          <div id="admin-projects-list" class="mt-3"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- FOOTER -->
   <footer class="border-t border-white/[.07] px-5 py-7 lg:px-8">
     <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 text-center sm:flex-row sm:text-left">
@@ -933,6 +982,24 @@
       border-color: rgba(34,211,238,.5);
       background: rgba(34,211,238,.07);
     }
+
+    /* Admin dashboard — isolated from the public portfolio styling */
+    .admin-hidden { display: none !important; }
+    #admin-overlay { position: fixed; inset: 0; z-index: 100; overflow-y: auto; background: #070b17; color: #e5edf9; padding: 28px 18px 60px; }
+    .admin-wrap { width: min(900px, 100%); margin: 0 auto; }
+    .admin-card { margin-top: 18px; padding: 22px; border: 1px solid rgba(148,163,184,.18); border-radius: 16px; background: rgba(13,20,38,.96); }
+    .admin-field { display: flex; flex-direction: column; gap: 7px; margin: 14px 0; }
+    .admin-field label { font-size: 12px; color: #aebdd0; }
+    .admin-field input, .admin-field textarea, .admin-field select { width: 100%; padding: 11px 12px; border: 1px solid rgba(148,163,184,.25); border-radius: 9px; background: #070b17; color: #e5edf9; outline: none; }
+    .admin-field input:focus, .admin-field textarea:focus, .admin-field select:focus { border-color: #22d3ee; }
+    .admin-action { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 9px; padding: 10px 15px; font-size: 13px; font-weight: 700; cursor: pointer; }
+    .admin-primary { background: #67e8f9; color: #07111e; }
+    .admin-secondary { border: 1px solid rgba(148,163,184,.3); color: #e5edf9; background: rgba(255,255,255,.03); }
+    .admin-item { display: flex; justify-content: space-between; align-items: center; gap: 14px; padding: 13px 0; border-bottom: 1px solid rgba(148,163,184,.13); }
+    .admin-item:last-child { border-bottom: 0; }
+    .admin-item p, .admin-muted { color: #94a3b8; font-size: 12px; line-height: 1.6; }
+    .admin-danger { color: #fda4af; border: 1px solid rgba(251,113,133,.35); background: transparent; }
+    @media(max-width:600px){ #admin-overlay { padding: 18px 12px 40px; } .admin-card { padding: 16px; } .admin-item { align-items: flex-start; flex-direction: column; } }
   </style>
 
   <script>
@@ -1028,6 +1095,90 @@
 
     // Dynamic footer year
     document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+  <script>
+    // Admin dashboard: separate from existing portfolio scripts and behavior.
+    (() => {
+      const adminDefaults = [];
+      let adminProjects = [];
+      try { adminProjects = JSON.parse(localStorage.getItem("kw_portfolio_projects")) || adminDefaults; }
+      catch (error) { adminProjects = adminDefaults; }
+      let adminLoggedIn = false;
+      let adminSelectedFile = null;
+      let adminObjectUrl = null;
+      const adminEl = id => document.getElementById(id);
+      const adminEsc = value => String(value ?? "").replace(/[&<>"']/g, char => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[char]));
+      const adminSave = () => { try { localStorage.setItem("kw_portfolio_projects", JSON.stringify(adminProjects)); } catch (error) { alert("Browser storage is full; changes may not be saved."); } };
+
+      function adminRender() {
+        const list = adminEl("admin-projects-list");
+        list.innerHTML = adminProjects.map(project => `<div class="admin-item"><div><strong>${adminEsc(project.title)}</strong><p>${adminEsc(String(project.type).toUpperCase())} · ${adminEsc(String(project.desc).slice(0, 110))}</p></div><button type="button" class="admin-action admin-danger" data-remove-project="${Number(project.id)}">Remove</button></div>`).join("") || '<p class="admin-muted">No added projects yet.</p>';
+        const publicGrid = adminEl("admin-added-projects");
+        publicGrid.innerHTML = adminProjects.map(project => {
+          let media = '<div class="flex h-full min-h-44 items-center justify-center text-sm text-slate-400">PROJECT PREVIEW</div>';
+          if (project.type === "video" && project.url) media = `<video class="h-full w-full object-cover" controls preload="metadata" src="${adminEsc(project.url)}"></video>`;
+          else if (project.type === "photo" && project.url) media = `<img class="h-full w-full object-cover" loading="lazy" src="${adminEsc(project.url)}" alt="${adminEsc(project.title)}">`;
+          else if (project.type === "doc") media = `<div class="flex h-full min-h-44 items-center justify-center text-sm text-cyan-200">LAB NOTES / DOCUMENT</div>`;
+          return `<article class="card overflow-hidden rounded-2xl"><div class="project-art h-52 overflow-hidden border-b border-white/[.07]">${media}</div><div class="p-6"><p class="font-mono text-xs text-cyan-300">${adminEsc(project.type.toUpperCase())}</p><h3 class="mt-3 text-lg font-bold text-white">${adminEsc(project.title)}</h3><p class="mt-3 text-sm leading-6 text-slate-400">${adminEsc(project.desc)}</p>${project.type === "doc" && project.url ? `<a class="mt-4 inline-flex text-sm font-semibold text-cyan-300" href="${adminEsc(project.url)}" target="_blank" rel="noopener">Open document ↗</a>` : ""}</div></article>`;
+        }).join("");
+      }
+      function openAdmin() {
+        adminEl("admin-overlay").classList.remove("admin-hidden");
+        document.body.style.overflow = "hidden";
+        adminEl("admin-login-card").classList.toggle("admin-hidden", adminLoggedIn);
+        adminEl("admin-panel").classList.toggle("admin-hidden", !adminLoggedIn);
+        if (adminLoggedIn) adminRender();
+      }
+      function closeAdmin() { adminEl("admin-overlay").classList.add("admin-hidden"); document.body.style.overflow = ""; }
+      adminEl("open-admin").addEventListener("click", openAdmin);
+      adminEl("open-admin-mobile").addEventListener("click", () => { adminEl("mobile-menu").classList.add("hidden"); openAdmin(); });
+      adminEl("close-admin").addEventListener("click", closeAdmin);
+      adminEl("admin-login-form").addEventListener("submit", event => {
+        event.preventDefault();
+        if (adminEl("admin-password").value === "admin123") {
+          adminLoggedIn = true;
+          adminEl("admin-login-error").classList.add("admin-hidden");
+          adminEl("admin-login-card").classList.add("admin-hidden");
+          adminEl("admin-panel").classList.remove("admin-hidden");
+          adminRender();
+        } else adminEl("admin-login-error").classList.remove("admin-hidden");
+      });
+      adminEl("admin-p-file").addEventListener("change", event => {
+        adminSelectedFile = event.target.files[0] || null;
+        adminEl("admin-file-hint").textContent = adminSelectedFile ? `Selected: ${adminSelectedFile.name} (${(adminSelectedFile.size / 1024 / 1024).toFixed(1)} MB). Local preview only.` : "Choose a local file to preview it, or enter a path for permanent publishing.";
+      });
+      adminEl("admin-project-form").addEventListener("submit", event => {
+        event.preventDefault();
+        const title = adminEl("admin-p-title").value.trim();
+        const type = adminEl("admin-p-type").value;
+        const desc = adminEl("admin-p-desc").value.trim();
+        const enteredUrl = adminEl("admin-p-url").value.trim();
+        if (!enteredUrl && !adminSelectedFile) { alert("Provide a public path/URL or select a local file."); return; }
+        let url = enteredUrl;
+        let localOnly = false;
+        if (adminSelectedFile && !enteredUrl) {
+          if (adminObjectUrl) URL.revokeObjectURL(adminObjectUrl);
+          adminObjectUrl = URL.createObjectURL(adminSelectedFile);
+          url = adminObjectUrl;
+          localOnly = true;
+        }
+        adminProjects.unshift({ id: Date.now(), title, type, url, desc, localOnly });
+        if (!localOnly) adminSave();
+        adminRender();
+        event.target.reset(); adminSelectedFile = null;
+        adminEl("admin-file-hint").textContent = "Choose a local file to preview it, or enter a path for permanent publishing.";
+        alert(localOnly ? "Added for preview in this browser only. Upload the file to your website repository to publish it." : "Project added and saved in this browser.");
+      });
+      adminEl("admin-projects-list").addEventListener("click", event => {
+        const button = event.target.closest("[data-remove-project]");
+        if (!button) return;
+        const id = Number(button.dataset.removeProject);
+        adminProjects = adminProjects.filter(project => Number(project.id) !== id);
+        adminSave(); adminRender();
+      });
+      adminRender();
+    })();
   </script>
 </body>
 </html>
