@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "id": "cv",
+      "kind": "document",
+      "title": "Curriculum Vitae",
+      "desc": "Network Administration & Security \u00b7 IT Audit \u00b7 Cybersecurity",
+      "path": "media/Curriculum_Vitae_Kouegoue_Nana_Wilfried.pdf",
+      "ext": "pdf",
+      "size": 127501,
+      "added": "2026-10-13T00:00:00.000Z"
+    }
+  ]
+}
