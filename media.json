@@ -2,6 +2,14 @@
   "version": 1,
   "items": [
     {
+      "id": "mv6ttjd2792w",
+      "kind": "link",
+      "title": "yep yep",
+      "desc": "test link video",
+      "added": "2026-10-13T15:19:06.566Z",
+      "path": "https://youtu.be/Y9_hgWYT2NQ"
+    },
+    {
       "id": "mv6tqma198qa",
       "kind": "video",
       "title": "test1",
