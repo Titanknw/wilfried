@@ -2,10 +2,20 @@
   "version": 1,
   "items": [
     {
+      "id": "mv6tqma198qa",
+      "kind": "video",
+      "title": "test1",
+      "desc": "yep yep yep",
+      "added": "2026-10-13T15:16:50.377Z",
+      "size": 10745880,
+      "ext": "mp4",
+      "path": "media/mv6tqma198qa-12.10.2026_15.27.05_REC.mp4"
+    },
+    {
       "id": "cv",
       "kind": "document",
       "title": "Curriculum Vitae",
-      "desc": "Network Administration & Security \u00b7 IT Audit \u00b7 Cybersecurity",
+      "desc": "Network Administration & Security · IT Audit · Cybersecurity",
       "path": "media/Curriculum_Vitae_Kouegoue_Nana_Wilfried.pdf",
       "ext": "pdf",
       "size": 127501,
