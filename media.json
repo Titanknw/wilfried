@@ -32,20 +32,10 @@
       "added": "2026-10-13T00:00:08Z"
     },
     {
-      "id": "p4",
-      "kind": "photo",
-      "title": "Radio installation on a tower",
-      "desc": "",
-      "path": "media/field-04-tower-radio-install.jpg",
-      "ext": "jpg",
-      "size": 154144,
-      "added": "2026-10-13T00:00:07Z"
-    },
-    {
       "id": "cv",
       "kind": "document",
       "title": "Curriculum Vitae",
-      "desc": "Network Administration & Security \u00b7 IT Audit \u00b7 Cybersecurity",
+      "desc": "Network Administration & Security · IT Audit · Cybersecurity",
       "path": "media/Curriculum_Vitae_Kouegoue_Nana_Wilfried.pdf",
       "ext": "pdf",
       "size": 127501,
