@@ -2,16 +2,6 @@
   "version": 1,
   "items": [
     {
-      "id": "p2",
-      "kind": "photo",
-      "title": "Radios and dishes on a mast",
-      "desc": "",
-      "path": "media/field-02-radios-on-mast.jpg",
-      "ext": "jpg",
-      "size": 130912,
-      "added": "2026-10-13T00:00:09Z"
-    },
-    {
       "id": "cv",
       "kind": "document",
       "title": "Curriculum Vitae",
