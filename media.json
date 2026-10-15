@@ -12,16 +12,6 @@
       "added": "2026-10-13T00:00:09Z"
     },
     {
-      "id": "p3",
-      "kind": "photo",
-      "title": "On site at Port Autonome de Douala",
-      "desc": "",
-      "path": "media/field-03-port-of-douala.jpg",
-      "ext": "jpg",
-      "size": 156288,
-      "added": "2026-10-13T00:00:08Z"
-    },
-    {
       "id": "cv",
       "kind": "document",
       "title": "Curriculum Vitae",
