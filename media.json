@@ -2,16 +2,6 @@
   "version": 1,
   "items": [
     {
-      "id": "p1",
-      "kind": "photo",
-      "title": "Rooftop radio installation",
-      "desc": "",
-      "path": "media/field-01-rooftop-radio.jpg",
-      "ext": "jpg",
-      "size": 267141,
-      "added": "2026-10-13T00:00:10Z"
-    },
-    {
       "id": "p2",
       "kind": "photo",
       "title": "Radios and dishes on a mast",
