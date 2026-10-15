@@ -1,0 +1,1904 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Portfolio of Kouegoue Nana Wilfried, junior network administrator and security professional (IT audit, cybersecurity), based in Douala, Cameroon.">
+<meta name="theme-color" content="#07070D">
+<title>Kouegoue Nana Wilfried | Junior Network &amp; Security</title>
+<script>document.documentElement.className+=' js';</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#07070D; --text:#EDEBF7; --muted:#A09DB8; --accent:#B8A2FF; --accent-strong:#7C3AED;
+  --line:#2A2740; --card:rgba(16,14,28,.78); --ok:#6EE7B7; --err:#FCA5A5;
+  color-scheme:dark; box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+html{scroll-behavior:smooth; scroll-padding-top:env(safe-area-inset-top,0px); background:var(--bg)}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none !important}
+body{margin:0; background:var(--bg); color:var(--text); font-family:'Space Grotesk',system-ui,sans-serif; line-height:1.6; overflow-x:hidden}
+a{color:inherit; text-decoration:none}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
+.mono{font-family:'JetBrains Mono',ui-monospace,monospace; letter-spacing:.04em}
+
+.backdrop{position:fixed; top:0; right:0; bottom:0; left:0; z-index:0; pointer-events:none;
+  background:radial-gradient(ellipse 60% 50% at 30% 40%, rgba(124,58,237,.22), transparent 70%), linear-gradient(180deg,#0B0A16 0%,#07070D 60%)}
+#stage{position:fixed; top:0; left:0; width:100%; height:100%; z-index:0; display:block; pointer-events:none}
+.no-3d #stage{display:none}
+main{position:relative; z-index:1}
+
+/* nav */
+.nav{position:fixed; top:0; left:0; right:0; z-index:5; display:flex; justify-content:space-between; align-items:center; gap:16px;
+  padding:calc(12px + env(safe-area-inset-top,0px)) clamp(16px,4vw,56px) 12px}
+.brand{font-weight:700; letter-spacing:.01em; min-height:44px; display:flex; align-items:center; white-space:nowrap}
+.brand .short{display:none}
+.nav nav{display:flex; gap:clamp(10px,2.4vw,28px)}
+.nav nav a{min-height:44px; display:flex; align-items:center; color:var(--muted); font-size:15px}
+.nav nav a:hover{color:var(--text)}
+.dots{position:fixed; left:18px; top:50%; transform:translateY(-50%); z-index:5; list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:2px}
+.dots a{display:block; width:24px; height:24px; position:relative}
+.dots a::after{content:""; position:absolute; top:7px; left:7px; width:10px; height:10px; border-radius:50%; border:1.5px solid var(--muted); transition:all .25s}
+.dots a.on::after{background:var(--accent); border-color:var(--accent); transform:scale(1.25)}
+@media (max-width:1000px){.dots{display:none}}
+@media (max-width:760px){.nav nav a.opt{display:none}.brand .long{display:none}.brand .short{display:inline}}
+
+/* layout */
+.sec{position:relative; min-height:100vh; padding:120px clamp(20px,7vw,110px) 80px; display:flex; flex-direction:column; justify-content:center}
+.label{font-size:13px; text-transform:uppercase; color:var(--accent); margin:0 0 14px}
+.big{font-size:clamp(32px,5vw,72px); line-height:1.02; text-transform:uppercase; font-weight:700; margin:0 0 24px; letter-spacing:-.01em}
+.panel{background:var(--card); -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px); border:1px solid var(--line); border-radius:16px; padding:clamp(20px,3vw,36px)}
+.col{width:min(900px,100%); margin-left:auto}
+.col-l{width:min(620px,100%)}
+.lead{color:var(--muted); font-size:18px; margin:0 0 24px; max-width:640px}
+
+/* hero */
+.hero{align-items:flex-end}
+.hi{align-self:flex-start; font-size:15px; color:var(--muted); margin:0 0 auto; padding-top:8px}
+.title{margin:0; text-align:right; text-transform:uppercase; font-weight:700; font-size:clamp(34px,5.4vw,88px); line-height:.95; letter-spacing:-.02em}
+.title span{display:block}
+.outline{color:transparent; -webkit-text-stroke:1.6px var(--text)}
+.sub{margin:22px 0 0; max-width:460px; text-align:right; color:var(--muted); font-size:18px}
+.cta{display:flex; flex-wrap:wrap; gap:12px; justify-content:flex-end; margin-top:26px}
+.meta{margin:18px 0 0; font-size:13px; color:var(--muted); text-align:right}
+.scroll{position:absolute; bottom:24px; left:50%; transform:translateX(-50%); font-size:13px; color:var(--muted); text-transform:uppercase; min-height:44px; display:flex; align-items:center}
+.hero-photo{display:none}
+.no-3d .hero-photo{display:block; width:min(260px,60%); aspect-ratio:2/3; object-fit:cover; border-radius:16px; border:1px solid var(--line); margin:0 0 20px auto}
+@media (max-width:820px){
+  .hero{align-items:flex-start; justify-content:flex-end}
+  .hi{margin:0; padding:0 0 12px}
+  .title{text-align:left; font-size:clamp(32px,10vw,56px)}
+  .sub,.meta{text-align:left}
+  .cta{justify-content:flex-start}
+  .scroll{display:none}
+  .no-3d .hero-photo{margin:0 0 20px 0}
+}
+
+/* buttons */
+.btn{min-height:48px; padding:0 22px; display:inline-flex; align-items:center; justify-content:center; gap:8px; border-radius:8px; font:inherit; font-weight:700; background:var(--accent-strong); color:#fff; border:0; cursor:pointer}
+.btn:hover{background:#6D28D9}
+.btn.ghost{background:transparent; border:1px solid #4A4478; font-weight:500; color:var(--text)}
+.btn.ghost:hover{border-color:var(--accent); background:transparent}
+.btn.sm{min-height:40px; padding:0 16px; font-size:14px}
+.btn.danger{background:transparent; border:1px solid #7F3A4A; color:var(--err); font-weight:500}
+.btn.danger:hover{background:rgba(252,165,165,.08)}
+.btn[disabled]{opacity:.55; cursor:not-allowed}
+
+/* about */
+.about .panel{width:min(620px,100%); margin-left:auto}
+.about h2{margin:0 0 14px; font-size:clamp(24px,3vw,34px); line-height:1.15}
+.about p{margin:0 0 16px; color:var(--muted)}
+.facts{list-style:none; margin:20px 0 0; padding:0; display:grid; gap:12px}
+.facts li{display:grid; grid-template-columns:110px 1fr; gap:12px; font-size:15px}
+.facts .k{color:var(--accent); font-size:12px; text-transform:uppercase; padding-top:3px}
+@media (max-width:480px){.facts li{grid-template-columns:1fr; gap:2px}}
+
+/* skills */
+.grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:20px}
+.skill{display:flex; flex-direction:column; gap:10px}
+.skill .n{font-size:12px; color:var(--accent)}
+.skill h3{margin:0; font-size:20px}
+.skill p{margin:0; color:var(--muted); font-size:15px}
+.chips{list-style:none; display:flex; flex-wrap:wrap; gap:8px; margin:0; padding:0}
+.chips li{font-size:12px; padding:4px 11px; border:1px solid #3A3560; border-radius:999px}
+
+/* timeline */
+.timeline{--w:104px; list-style:none; margin:0; padding:0; position:relative}
+.timeline::before{content:""; position:absolute; left:calc(var(--w) + 16px); top:8px; bottom:36px; width:1px; background:var(--line)}
+.timeline li{display:grid; grid-template-columns:var(--w) 1fr; column-gap:32px; padding:0 0 30px; position:relative}
+.timeline li:last-child{padding-bottom:0}
+.timeline li::before{content:""; position:absolute; left:calc(var(--w) + 11.5px); top:8px; width:9px; height:9px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 4px rgba(184,162,255,.18)}
+.when{text-align:right; color:var(--muted); font-size:13px; padding-top:2px}
+.now .when{color:var(--accent)}
+.what h3{margin:0; font-size:19px; line-height:1.3}
+.what .org{margin:2px 0 8px; color:var(--accent); font-size:14px}
+.what p{margin:0; color:var(--muted)}
+.what ul{margin:8px 0 0; padding-left:18px; color:var(--muted); font-size:15px}
+.what li{display:list-item; padding:0 0 4px; grid-template-columns:none}
+.what li::before{content:none}
+.stack-gap{display:grid; gap:20px}
+@media (max-width:560px){.timeline{--w:70px}.timeline li{column-gap:26px}}
+
+/* projects */
+.card{display:flex; flex-direction:column; gap:12px; transition:transform .3s, border-color .3s}
+.card:hover{transform:translateY(-6px); border-color:var(--accent)}
+.tag{font-size:12px; text-transform:uppercase; color:var(--accent); margin:0}
+.card h3{margin:0; font-size:21px}
+.card p{margin:0; color:var(--muted); font-size:15px}
+.card .stack{margin-top:auto; font-size:12px; color:var(--text)}
+
+/* media */
+.media h3{margin:28px 0 14px; font-size:15px; text-transform:uppercase; color:var(--muted); font-weight:500}
+.mgrid{display:grid; grid-template-columns:repeat(auto-fill,minmax(270px,1fr)); gap:20px}
+.mitem{display:flex; flex-direction:column; gap:10px; padding:16px}
+.vwrap{position:relative; aspect-ratio:16/9; background:#000; border-radius:10px; overflow:hidden}
+.vwrap video,.vwrap iframe{position:absolute; top:0; left:0; width:100%; height:100%; border:0}
+.mitem h4{margin:0; font-size:17px; line-height:1.3}
+.mitem p{margin:0; color:var(--muted); font-size:14px}
+.badge{display:inline-block; font-size:11px; text-transform:uppercase; padding:2px 8px; border:1px solid #3A3560; border-radius:6px; color:var(--accent)}
+.doc-ext{width:48px; height:56px; border:1px solid #4A4478; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:12px; color:var(--accent); text-transform:uppercase}
+.doc-row{display:flex; gap:14px; align-items:flex-start}
+.doc-row .txt{flex:1; min-width:0}
+.actions{display:flex; flex-wrap:wrap; gap:10px; margin-top:4px}
+.empty{color:var(--muted); font-size:15px; margin:0}
+
+/* tech */
+.tech{justify-content:flex-start; padding-top:clamp(110px,16vh,170px)}
+.tech .big{margin-bottom:12px}
+.hint{font-size:13px; color:var(--muted); margin:0}
+
+/* contact */
+.contact .lead{margin-bottom:22px}
+.clist{list-style:none; margin:0 0 24px; padding:0; display:grid; gap:14px}
+.clist li{display:grid; grid-template-columns:96px 1fr; gap:12px; align-items:baseline}
+.clist .k{font-size:12px; text-transform:uppercase; color:var(--accent)}
+.clist a:hover{color:var(--accent)}
+.foot{margin:32px 0 0; font-size:12px; color:var(--muted); display:flex; flex-wrap:wrap; gap:8px 20px; align-items:center}
+.foot button{background:none; border:0; color:var(--muted); font:inherit; cursor:pointer; min-height:44px; padding:0}
+.foot button:hover{color:var(--text)}
+@media (max-width:480px){.clist li{grid-template-columns:1fr; gap:2px}}
+
+/* reveal */
+.js .rev{opacity:0; transform:translateY(26px); transition:opacity .7s ease, transform .7s ease}
+.js .rev.in{opacity:1; transform:none}
+
+/* shared controls */
+.adm-head{display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:16px}
+.adm-head h2,.adm-head h3{margin:0; font-size:22px}
+.icon-btn{width:44px; height:44px; border-radius:10px; background:transparent; border:1px solid var(--line); color:var(--text); font-size:22px; cursor:pointer; line-height:1; display:inline-flex; align-items:center; justify-content:center}
+.icon-btn:hover{border-color:var(--accent)}
+.field{display:flex; flex-direction:column; gap:6px; margin-bottom:14px}
+.field label{font-size:13px; color:var(--muted)}
+.field input,.field select,.field textarea{min-height:44px; background:#14122A; color:var(--text); border:1px solid #3A3560; border-radius:8px; padding:10px 12px; font:inherit; width:100%}
+.field textarea{min-height:76px; resize:vertical}
+.row2{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+@media (max-width:560px){.row2{grid-template-columns:1fr}}
+.status{min-height:24px; font-size:14px; margin:10px 0 0; color:var(--muted)}
+.status.ok{color:var(--ok)} .status.err{color:var(--err)}
+.note{font-size:13px; color:var(--muted); background:rgba(184,162,255,.07); border:1px solid #2F2A55; border-radius:10px; padding:12px 14px; margin:0 0 16px}
+details.help{margin:0 0 16px; font-size:14px; color:var(--muted)}
+details.help summary{cursor:pointer; color:var(--text); min-height:32px}
+details.help ol{margin:8px 0 0; padding-left:20px}
+
+/* photos page */
+#gallery{display:none; position:relative; z-index:1; min-height:100vh; padding:120px clamp(20px,7vw,110px) 80px}
+.view-gallery #gallery{display:block}
+.view-gallery main,.view-gallery .dots{display:none}
+.gal-only{display:none !important}
+.view-gallery .nav nav a:not(.gal-only){display:none}
+.view-gallery .nav nav a.gal-only{display:flex !important}
+.gal-wrap{max-width:1200px; margin:0 auto}
+.gal-top{display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-end; gap:16px; margin-bottom:28px}
+.gal-top .big{margin-bottom:8px}
+.gal-grid{columns:3 260px; column-gap:16px}
+.gal-item{break-inside:avoid; margin:0 0 16px; border:1px solid var(--line); border-radius:12px; overflow:hidden; background:#0E0C1B; position:relative}
+.gal-open{display:block; width:100%; padding:0; border:0; background:none; cursor:zoom-in; position:relative; color:inherit; font:inherit; text-align:left}
+.gal-del{position:absolute; top:8px; right:8px; z-index:2; min-height:40px; padding:0 14px; border-radius:8px; border:1px solid #7F3A4A; background:rgba(14,12,27,.92); color:var(--err); font:inherit; font-size:14px; cursor:pointer}
+.gal-del:hover{background:rgba(60,20,30,.95)}
+.gal-item img{display:block; width:100%; height:auto; transition:transform .5s}
+.gal-open:hover img{transform:scale(1.03)}
+.gal-cap{position:absolute; left:0; right:0; bottom:0; padding:30px 14px 12px; background:linear-gradient(0deg,rgba(5,5,10,.88),transparent); font-size:14px; opacity:0; transition:opacity .25s}
+.gal-open:hover .gal-cap,.gal-open:focus-visible .gal-cap{opacity:1}
+@media (hover:none){.gal-cap{opacity:1}}
+.gal-foot{margin-top:40px; display:flex; flex-wrap:wrap; gap:12px 20px; align-items:center; font-size:12px; color:var(--muted)}
+.gal-foot button{background:none; border:0; color:var(--muted); font:inherit; cursor:pointer; min-height:44px; padding:0}
+.gal-foot button:hover{color:var(--text)}
+
+/* photo teaser in the media section */
+.teaser{display:flex; flex-wrap:wrap; gap:20px; align-items:center; justify-content:space-between; margin-top:36px}
+.teaser .strip{display:flex; gap:10px}
+.teaser .strip img{width:84px; height:112px; object-fit:cover; border-radius:10px; border:1px solid var(--line)}
+.teaser .t-title{margin:0 0 4px; font-size:22px; font-weight:700}
+.teaser .t-sub{margin:0 0 14px; color:var(--muted); font-size:15px}
+
+/* lightbox */
+.lb{position:fixed; top:0; right:0; bottom:0; left:0; z-index:40; background:rgba(4,4,9,.95); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:64px 16px 16px}
+.lb img{max-width:min(1100px,100%); max-height:calc(100vh - 170px); object-fit:contain; border-radius:8px}
+.lb-cap{margin-top:14px; text-align:center; max-width:700px}
+.lb-cap b{display:block; font-size:18px}
+.lb-cap span{color:var(--muted); font-size:14px}
+.lb .icon-btn{position:absolute; background:rgba(14,12,27,.9)}
+.lb-x{top:calc(12px + env(safe-area-inset-top,0px)); right:12px}
+.lb-prev{left:12px; top:50%; transform:translateY(-50%)}
+.lb-next{right:12px; top:50%; transform:translateY(-50%)}
+
+/* admin dashboard */
+.adm{position:fixed; top:0; right:0; bottom:0; left:0; z-index:20; background:#090814; display:flex}
+.adm-login{margin:auto; width:min(420px,100%); padding:16px}
+.adm-login-card{background:#0E0C1B; border:1px solid var(--line); border-radius:16px; padding:24px}
+.adm-app{display:flex; flex:1; min-width:0; min-height:0}
+.adm-side{width:92px; flex:0 0 92px; background:#0E0C1B; border-right:1px solid var(--line); display:flex; flex-direction:column; align-items:center; padding:14px 8px; gap:8px; overflow-y:auto}
+.adm-logo{width:48px; height:48px; border-radius:50%; background:#1A1735; display:flex; align-items:center; justify-content:center; font-weight:700; color:var(--accent); margin-bottom:10px; flex:0 0 auto}
+.adm-nav{display:flex; flex-direction:column; gap:6px; width:100%}
+.adm-nav button,.adm-bot button{position:relative; width:100%; min-height:58px; border:0; border-radius:12px; background:transparent; color:var(--muted); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; font:inherit; font-size:11px; cursor:pointer}
+.adm-nav button:hover,.adm-bot button:hover{color:var(--text); background:#16132B}
+.adm-nav button.on{color:var(--text); background:rgba(124,58,237,.24)}
+.adm svg.i{width:22px; height:22px; stroke:currentColor; fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round}
+.adm-nav b{position:absolute; top:4px; right:10px; font-size:10px; font-weight:500; color:var(--accent)}
+.adm-bot{margin-top:auto; display:flex; flex-direction:column; gap:6px; width:100%}
+.adm-main{flex:1; min-width:0; overflow:auto; padding:20px clamp(14px,3vw,32px) 32px}
+.adm-top{display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-bottom:16px}
+.adm-top input,.adm-top select{min-height:44px; background:#14122A; color:var(--text); border:1px solid #2F2A55; border-radius:10px; padding:0 14px; font:inherit}
+.adm-top input{flex:1 1 200px; min-width:0}
+.adm-new{position:relative}
+.menu{position:absolute; top:calc(100% + 8px); left:0; z-index:5; width:250px; background:#0E0C1B; border:1px solid var(--line); border-radius:14px; padding:6px; box-shadow:0 18px 50px rgba(0,0,0,.55)}
+.menu button{display:flex; align-items:center; gap:12px; width:100%; min-height:48px; padding:0 12px; border:0; border-radius:10px; background:transparent; color:var(--text); font:inherit; cursor:pointer; text-align:left}
+.menu button:hover{background:#16132B}
+.menu svg.i{stroke:var(--accent)}
+.adm-sec-title{margin:0 0 14px; font-size:20px}
+.rows{list-style:none; margin:0; padding:0; display:grid; gap:12px}
+.row{display:flex; gap:16px; padding:12px; border:1px solid var(--line); border-radius:14px; background:#0E0C1B; flex-wrap:wrap; align-items:flex-start}
+.thumb{position:relative; width:104px; height:70px; flex:0 0 104px; border-radius:10px; background:#07060F; border:1px solid var(--line); overflow:hidden; display:flex; align-items:center; justify-content:center; color:var(--accent); font-size:13px}
+.thumb img{position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover}
+.tagk{position:absolute; top:4px; left:4px; font-size:10px; padding:1px 6px; border-radius:5px; background:rgba(5,5,10,.88); color:var(--text); z-index:1}
+.r-body{flex:1 1 220px; min-width:0}
+.r-title{font-weight:500; overflow-wrap:anywhere}
+.r-meta{display:flex; flex-wrap:wrap; gap:6px; margin:6px 0}
+.chip{font-size:11px; padding:2px 8px; border-radius:6px; background:#1A1735; color:var(--muted)}
+.r-path{font-size:12px; color:var(--muted); overflow-wrap:anywhere}
+.r-act{display:flex; flex-wrap:wrap; gap:8px; align-items:center}
+.r-edit{display:grid; gap:8px; width:100%}
+.r-edit input{min-height:42px; background:#14122A; color:var(--text); border:1px solid #3A3560; border-radius:8px; padding:0 12px; font:inherit; width:100%}
+.modal{position:absolute; top:0; right:0; bottom:0; left:0; z-index:10; background:rgba(4,4,9,.84); display:flex; align-items:center; justify-content:center; padding:16px}
+.modal-box{width:min(620px,100%); max-height:100%; overflow:auto; background:#0E0C1B; border:1px solid var(--line); border-radius:16px; padding:clamp(18px,3vw,28px)}
+.drop{display:flex; flex-direction:column; align-items:center; gap:10px; padding:34px 16px; border:2px dashed #3A3560; border-radius:14px; background:#0B0A18; cursor:pointer; text-align:center; position:relative}
+.drop.over{border-color:var(--accent); background:rgba(124,58,237,.14)}
+.drop:focus-within{outline:2px solid var(--accent); outline-offset:3px}
+.drop-t{font-size:17px}
+.drop-or{color:var(--muted); font-size:13px}
+.drop small{color:var(--muted); font-size:12px}
+.sr{position:absolute; width:1px; height:1px; opacity:0; overflow:hidden}
+.chk{display:flex; gap:10px; align-items:center; margin:14px 0; color:var(--muted); font-size:14px; min-height:32px}
+.queue{list-style:none; margin:0 0 14px; padding:0; display:grid; gap:8px; max-height:220px; overflow:auto}
+.queue li{display:flex; gap:10px; justify-content:space-between; align-items:center; padding:8px 12px; border:1px solid var(--line); border-radius:10px; font-size:14px}
+.queue .q-n{min-width:0; overflow-wrap:anywhere}
+.queue .q-s{font-size:12px; color:var(--muted); white-space:nowrap}
+.queue .ok .q-s{color:var(--ok)} .queue .bad .q-s{color:var(--err)}
+.detect{font-size:13px; color:var(--accent); min-height:20px; margin:0 0 12px}
+@media (max-width:760px){
+  .adm,.adm-app{flex-direction:column}
+  .adm-side{width:100%; flex:0 0 auto; flex-direction:row; border-right:0; border-bottom:1px solid var(--line); padding:8px; overflow-x:auto; overflow-y:hidden}
+  .adm-logo{display:none}
+  .adm-nav{flex-direction:row; width:auto}
+  .adm-nav button,.adm-bot button{min-width:64px; width:auto; min-height:52px; padding:0 8px}
+  .adm-bot{margin-top:0; margin-left:auto; flex-direction:row; width:auto}
+  .thumb{width:84px; flex-basis:84px; height:60px}
+}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .js .rev{opacity:1; transform:none; transition:none}
+  .card{transition:none}
+}
+</style>
+</head>
+<body>
+<div class="backdrop" aria-hidden="true"></div>
+<canvas id="stage" aria-hidden="true"></canvas>
+
+<header class="nav">
+  <a class="brand" href="#hero"><span class="long">Kouegoue Nana Wilfried</span><span class="short">K. N. Wilfried</span></a>
+  <nav aria-label="Primary">
+    <a class="opt" href="#about">About</a>
+    <a class="opt" href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#media">Media</a>
+    <a href="#photos">Photos</a>
+    <a class="gal-only" href="#hero">← Back to portfolio</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<ul class="dots" aria-label="Sections">
+  <li><a href="#hero" aria-label="Intro"></a></li>
+  <li><a href="#about" aria-label="About"></a></li>
+  <li><a href="#skills" aria-label="Skills"></a></li>
+  <li><a href="#experience" aria-label="Experience and education"></a></li>
+  <li><a href="#projects" aria-label="Projects"></a></li>
+  <li><a href="#media" aria-label="Videos and documents"></a></li>
+  <li><a href="#tech" aria-label="Tech stack"></a></li>
+  <li><a href="#contact" aria-label="Contact"></a></li>
+</ul>
+
+<main>
+  <section id="hero" class="sec hero">
+    <p class="hi mono">Hi, I'm Kouegoue Nana Wilfried</p>
+    <img class="hero-photo" src="assets/photo.jpg" alt="Portrait of Kouegoue Nana Wilfried" width="260" height="390">
+    <h1 class="title"><span>Junior Network</span><span class="outline">Administrator</span><span>&amp; Security</span></h1>
+    <p class="sub">Junior network administration and security professional with hands-on experience in telecom infrastructure, fibre links and network security.</p>
+    <div class="cta">
+      <a class="btn" href="#projects">View my projects</a>
+      <a class="btn ghost" href="assets/Curriculum_Vitae_Kouegoue_Nana_Wilfried.pdf" download>Download CV</a>
+    </div>
+    <p class="meta mono">Douala, Cameroon · Network Administration &amp; Security · IT Audit</p>
+    <a class="scroll mono" href="#about">Scroll ↓</a>
+  </section>
+
+  <section id="about" class="sec about">
+    <div class="panel rev">
+      <p class="label mono">About me</p>
+      <h2>Network administration and security, from the field to the lab.</h2>
+      <p>I'm a Network Administration and Security graduate with hands-on experience in telecom infrastructure, network administration and cybersecurity. I currently work as a practical intern at Matrix Telecom, configuring MikroTik routers, wireless radios and ONU equipment, and testing and repairing fibre links.</p>
+      <p>I have a solid foundation in network security, Windows Server, VLANs, DHCP, traffic analysis, vulnerability assessment and Python scripting, and I'm interested in IT audit, IT controls, technology risk and network security.</p>
+      <ul class="facts">
+        <li><span class="k mono">Now</span><span>Network &amp; Telecom Intern at Matrix Telecom, Douala</span></li>
+        <li><span class="k mono">Education</span><span>Bachelor's in Network Administration &amp; Security, IUG Douala (2025)</span></li>
+        <li><span class="k mono">Languages</span><span>English (fluent), French (fluent)</span></li>
+        <li><span class="k mono">Interests</span><span>IT audit, IT risk &amp; controls, cybersecurity, telecom, security monitoring</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="skills" class="sec">
+    <div class="col">
+      <p class="label mono rev">Core competencies</p>
+      <h2 class="big rev">Skills</h2>
+      <div class="grid">
+        <article class="skill panel rev">
+          <span class="n mono">01</span><h3>IT audit &amp; cybersecurity</h3>
+          <p>Security controls, vulnerability assessment, network security, traffic analysis and technical documentation.</p>
+        </article>
+        <article class="skill panel rev">
+          <span class="n mono">02</span><h3>Network administration</h3>
+          <p>MikroTik, IP addressing, subnetting, VLANs, DHCP, routing fundamentals and network troubleshooting.</p>
+        </article>
+        <article class="skill panel rev">
+          <span class="n mono">03</span><h3>Telecom &amp; fibre optics</h3>
+          <p>M3/M5 wireless radios, ONU configuration, OTDR testing, fibre fault localisation and fusion splicing.</p>
+        </article>
+        <article class="skill panel rev">
+          <span class="n mono">04</span><h3>Security tools</h3>
+          <ul class="chips"><li>Nmap</li><li>Wireshark</li><li>Metasploit</li><li>Hydra</li><li>John the Ripper</li><li>Kali Linux</li></ul>
+        </article>
+        <article class="skill panel rev">
+          <span class="n mono">05</span><h3>Systems &amp; virtualisation</h3>
+          <ul class="chips"><li>Windows Server</li><li>Cisco Packet Tracer</li><li>GNS3</li><li>VirtualBox</li><li>VMware</li></ul>
+        </article>
+        <article class="skill panel rev">
+          <span class="n mono">06</span><h3>Programming &amp; scripting</h3>
+          <p>Python scripting and automation, Bash basics.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="sec">
+    <div class="col stack-gap">
+      <div>
+        <p class="label mono rev">Experience</p>
+        <h2 class="big rev">Where I've worked</h2>
+        <div class="panel rev">
+          <ol class="timeline">
+            <li class="now">
+              <div class="when mono">2026 – NOW</div>
+              <div class="what">
+                <h3>Network &amp; Telecom Intern</h3><p class="org">Matrix Telecom, Douala</p>
+                <ul>
+                  <li>Configure MikroTik routers across models and port configurations, M3/M5 wireless radio stations and ONU equipment.</li>
+                  <li>Test fibre links with an OTDR and help locate faults and signal-loss points; assist with fusion splicing and link restoration.</li>
+                  <li>Took part in a field intervention after a fibre-optic cable rupture: fault localisation, fusion and post-repair verification.</li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <div class="when mono">2025</div>
+              <div class="what">
+                <h3>Cybersecurity Intern</h3><p class="org">G&amp;C Creative Technology, Douala</p>
+                <ul>
+                  <li>Wrote Python scripts for automation and basic cybersecurity tasks.</li>
+                  <li>Analysed network traffic with Wireshark and ran scans and vulnerability assessments with Nmap.</li>
+                  <li>Practised ethical hacking in controlled labs with Kali Linux, plus exercises on Hack The Box and TryHackMe.</li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <div class="when mono">2023 – 2024</div>
+              <div class="what">
+                <h3>Network &amp; Security Intern</h3><p class="org">Matrix Telecom, Douala</p>
+                <ul>
+                  <li>Deployed and configured DHCP services in Windows Server and Cisco Packet Tracer environments.</li>
+                  <li>Managed IP addressing for more than 200 devices, applying subnetting and VLAN segmentation.</li>
+                  <li>Produced network documentation and infrastructure diagrams.</li>
+                </ul>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+      <div>
+        <p class="label mono rev">Education</p>
+        <div class="panel rev">
+          <ol class="timeline">
+            <li>
+              <div class="when mono">2025</div>
+              <div class="what"><h3>Bachelor's Degree in Network Administration &amp; Security</h3><p class="org">Institut Universitaire du Golfe de Guinée (IUG), Douala</p></div>
+            </li>
+            <li>
+              <div class="when mono">2024</div>
+              <div class="what"><h3>Higher National Diploma (HND) in Network Admin &amp; Security</h3><p class="org">Institut Universitaire du Golfe de Guinée (IUG), Douala</p></div>
+            </li>
+            <li>
+              <div class="when mono">2023 / 2020</div>
+              <div class="what"><h3>GCE Advanced Level &amp; Ordinary Level</h3><p class="org">Government Bilingual High School Ngodi Bakoko</p></div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="sec">
+    <div class="col">
+      <p class="label mono rev">Selected work</p>
+      <h2 class="big rev">Projects</h2>
+      <div class="grid">
+        <article class="card panel rev">
+          <p class="tag mono">Security tool</p>
+          <h3>Cybersecurity Assistant</h3>
+          <p>A Python/Tkinter tool that brings network traffic capture, Nmap scanning and security automation together in one interface.</p>
+          <p class="stack mono">Python · Tkinter · Nmap</p>
+        </article>
+        <article class="card panel rev">
+          <p class="tag mono">Labs</p>
+          <h3>Network Security Labs</h3>
+          <p>Hands-on lab environments covering Windows Server, Active Directory, VLANs, DHCP, DNS, FortiGate and Zabbix.</p>
+          <p class="stack mono">Windows Server · FortiGate · Zabbix</p>
+        </article>
+        <article class="card panel rev">
+          <p class="tag mono">Field work</p>
+          <h3>Fibre fault intervention</h3>
+          <p>Took part in an on-site repair after a fibre-optic cable rupture: OTDR-based fault localisation, fusion splicing and post-repair verification.</p>
+          <p class="stack mono">OTDR · Fusion splicing</p>
+        </article>
+        <article class="card panel rev">
+          <p class="tag mono">Network design</p>
+          <h3>Addressing &amp; VLAN segmentation</h3>
+          <p>IP addressing and allocation for more than 200 devices, with subnetting, VLAN segmentation, DHCP and network documentation.</p>
+          <p class="stack mono">VLANs · DHCP · Subnetting</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="media" class="sec media">
+    <div class="col">
+      <p class="label mono rev">Videos &amp; documents</p>
+      <h2 class="big rev">Demos &amp; documents</h2>
+      <h3 class="rev">Videos</h3>
+      <div id="media-videos" class="mgrid"></div>
+      <h3 class="rev">Documents</h3>
+      <div id="media-docs" class="mgrid"></div>
+      <div id="photo-teaser" class="teaser panel rev" hidden></div>
+    </div>
+  </section>
+
+  <section id="tech" class="sec tech">
+    <p class="label mono rev">Tech stack</p>
+    <h2 class="big rev">Tools I work with</h2>
+    <p class="hint mono rev">Move your cursor (or finger) to push the spheres around.</p>
+  </section>
+
+  <section id="contact" class="sec contact">
+    <div class="col-l panel rev">
+      <p class="label mono">Contact</p>
+      <h2 class="big">Let's work together.</h2>
+      <p class="lead">Open to junior opportunities in network administration, IT audit and cybersecurity.</p>
+      <ul class="clist">
+        <li><span class="k mono">Email</span><a href="mailto:kouegouenanawilfried237@gmail.com">kouegouenanawilfried237@gmail.com</a></li>
+        <li><span class="k mono">Phone</span><a href="tel:+237677960923">+237 677 960 923</a></li>
+        <li><span class="k mono">LinkedIn</span><a href="https://www.linkedin.com/in/kouegoue-nana-wilfried-637170429" target="_blank" rel="noopener">kouegoue-nana-wilfried</a></li>
+        <li><span class="k mono">Location</span><span>Douala, Cameroon</span></li>
+      </ul>
+      <div class="cta" style="justify-content:flex-start;margin-top:0">
+        <a class="btn" href="mailto:kouegouenanawilfried237@gmail.com">Send an email</a>
+        <a class="btn ghost" href="assets/Curriculum_Vitae_Kouegoue_Nana_Wilfried.pdf" download>Download CV</a>
+      </div>
+      <p class="foot mono"><span>© 2026 Kouegoue Nana Wilfried</span><button type="button" id="open-admin">Admin</button></p>
+    </div>
+  </section>
+</main>
+
+<!-- PHOTOS PAGE (separate view, not part of the scroll) -->
+<section id="gallery" aria-label="Photos">
+  <div class="gal-wrap">
+    <div class="gal-top">
+      <div>
+        <p class="label mono">Photo gallery</p>
+        <h1 class="big">Photos</h1>
+        <p class="lead" id="gal-count" style="margin:0"></p>
+      </div>
+      <div class="actions">
+        <a class="btn ghost" href="#hero">← Back to portfolio</a>
+        <button class="btn" type="button" id="gal-add" hidden>+ Add photos</button>
+      </div>
+    </div>
+    <div class="gal-grid" id="gal-grid"></div>
+    <div class="gal-foot mono"><span>© 2026 Kouegoue Nana Wilfried</span><button type="button" id="gal-admin">Admin</button></div>
+  </div>
+</section>
+
+<div id="lb" class="lb" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button type="button" class="icon-btn lb-x" id="lb-x" aria-label="Close photo">×</button>
+  <button type="button" class="icon-btn lb-prev" id="lb-prev" aria-label="Previous photo">‹</button>
+  <img id="lb-img" alt="">
+  <div class="lb-cap"><b id="lb-t"></b><span id="lb-d"></span><br><span class="mono" id="lb-n"></span></div>
+  <button type="button" class="icon-btn lb-next" id="lb-next" aria-label="Next photo">›</button>
+</div>
+
+<!-- ADMIN DASHBOARD -->
+<div id="admin" class="adm" hidden role="dialog" aria-modal="true" aria-label="Admin dashboard">
+  <div id="adm-login" class="adm-login">
+    <form id="login-form" class="adm-login-card" autocomplete="off">
+      <div class="adm-head"><h2>Admin</h2><button type="button" class="icon-btn" id="login-close" aria-label="Close admin">×</button></div>
+      <p class="note">Sign in to manage the videos, photos and documents on your site.</p>
+      <div class="field">
+        <label for="admin-pw">Password</label>
+        <input id="admin-pw" type="password" autocomplete="current-password" required>
+      </div>
+      <button class="btn" type="submit" id="login-btn">Sign in</button>
+      <p class="status" id="login-status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+
+  <div id="adm-app" class="adm-app" hidden>
+    <aside class="adm-side">
+      <div class="adm-logo mono" aria-hidden="true">KW</div>
+      <nav class="adm-nav" aria-label="Library">
+        <button type="button" data-view="all" class="on"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span>Library</span><b id="c-all"></b></button>
+        <button type="button" data-view="video"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9l5 3-5 3z"/></svg><span>Videos</span><b id="c-video"></b></button>
+        <button type="button" data-view="photo"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.8"/><path d="M21 16l-5-5-8 8"/></svg><span>Photos</span><b id="c-photo"></b></button>
+        <button type="button" data-view="document"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/></svg><span>Documents</span><b id="c-document"></b></button>
+        <button type="button" data-view="settings"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></svg><span>GitHub</span></button>
+      </nav>
+      <div class="adm-bot">
+        <button type="button" id="logout"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 4H5v16h5"/><path d="M15 8l4 4-4 4M19 12H9"/></svg><span>Sign out</span></button>
+        <button type="button" id="adm-close"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg><span>Close</span></button>
+      </div>
+    </aside>
+
+    <section class="adm-main">
+      <header class="adm-top">
+        <div class="adm-new">
+          <button class="btn" type="button" id="new-btn" aria-haspopup="true" aria-expanded="false">+ New</button>
+          <div class="menu" id="new-menu" role="menu" hidden>
+            <button type="button" role="menuitem" id="m-upload"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 20h16"/></svg>Upload files</button>
+            <button type="button" role="menuitem" id="m-link"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 005.7 0l3-3a4 4 0 00-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 00-5.7 0l-3 3a4 4 0 005.7 5.7l1-1"/></svg>Add from link</button>
+            <button type="button" role="menuitem" id="m-sync"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 00-14.5-4M4 4v4h4"/><path d="M4 13a8 8 0 0014.5 4M20 20v-4h-4"/></svg>Sync GitHub folder</button>
+          </div>
+        </div>
+        <input id="adm-search" type="search" placeholder="Search" aria-label="Search the library">
+        <select id="adm-sort" aria-label="Sort order">
+          <option value="new">Newest first</option>
+          <option value="old">Oldest first</option>
+          <option value="az">Title A to Z</option>
+        </select>
+      </header>
+      <p class="note" id="mode-note"></p>
+
+      <div id="view-lib">
+        <h2 class="adm-sec-title" id="lib-title">Library</h2>
+        <ul class="rows" id="lib-list"></ul>
+      </div>
+
+      <div id="view-set" hidden>
+        <h2 class="adm-sec-title">GitHub connection</h2>
+        <details class="help">
+          <summary>How to get a GitHub token</summary>
+          <ol>
+            <li>On GitHub open <strong>Settings → Developer settings → Personal access tokens → Fine-grained tokens</strong>.</li>
+            <li>Choose <strong>Generate new token</strong>, select <strong>Only select repositories</strong> and pick this site's repository.</li>
+            <li>Under <strong>Repository permissions</strong> set <strong>Contents</strong> to <strong>Read and write</strong>.</li>
+            <li>Generate the token and paste it below. It is stored encrypted on this device only.</li>
+          </ol>
+        </details>
+        <form id="set-form" autocomplete="off">
+          <div class="row2">
+            <div class="field"><label for="set-owner">GitHub username</label><input id="set-owner" type="text" autocomplete="off"></div>
+            <div class="field"><label for="set-repo">Repository name</label><input id="set-repo" type="text" autocomplete="off"></div>
+          </div>
+          <div class="row2">
+            <div class="field"><label for="set-branch">Branch</label><input id="set-branch" type="text" value="main" autocomplete="off"></div>
+            <div class="field"><label for="set-token">Token</label><input id="set-token" type="password" autocomplete="new-password" placeholder="Leave empty to keep the saved token"></div>
+          </div>
+          <div class="actions">
+            <button class="btn" type="submit">Save</button>
+            <button class="btn ghost" type="button" id="set-test">Test connection</button>
+            <button class="btn danger" type="button" id="set-forget">Forget token</button>
+          </div>
+        </form>
+        <h2 class="adm-sec-title" style="margin-top:28px">Portrait photo</h2>
+        <p class="note">The photo shown in the 3D frame at the top of your site. Choose a portrait (ideally taller than wide). It is cropped to fit.</p>
+        <form id="portrait-form">
+          <div class="field"><label for="portrait-file">New portrait (JPG, PNG or WebP)</label><input id="portrait-file" type="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp"></div>
+          <button class="btn" type="submit" id="portrait-btn">Replace portrait</button>
+        </form>
+      </div>
+
+      <p class="status" id="admin-status" role="status" aria-live="polite"></p>
+    </section>
+  </div>
+
+  <!-- upload modal -->
+  <div class="modal" id="modal-up" hidden>
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="up-title">
+      <div class="adm-head"><h3 id="up-title">Upload files</h3><button type="button" class="icon-btn" id="up-x" aria-label="Close upload">×</button></div>
+      <label class="drop" id="drop" for="up-files">
+        <span class="drop-t">Drag and drop your files here to upload</span>
+        <span class="drop-or">or</span>
+        <span class="btn ghost sm">Choose files</span>
+        <small>Videos (MP4, WebM) · photos (JPG, PNG, WebP, GIF) · documents (PDF, Word, PowerPoint, Excel, text)</small>
+        <input id="up-files" class="sr" type="file" multiple accept=".mp4,.webm,.ogv,.m4v,.jpg,.jpeg,.png,.webp,.gif,.pdf,.doc,.docx,.ppt,.pptx,.xls,.xlsx,.txt,.csv,.md">
+      </label>
+      <label class="chk"><input type="checkbox" id="up-opt" checked> Optimize photos before upload (resize to 1920 px)</label>
+      <ul class="queue" id="up-queue"></ul>
+      <div class="actions">
+        <button class="btn" type="button" id="up-start" disabled>Upload</button>
+        <button class="btn ghost" type="button" id="up-cancel">Close</button>
+      </div>
+      <p class="status" id="up-status" role="status" aria-live="polite"></p>
+    </div>
+  </div>
+
+  <!-- link modal -->
+  <div class="modal" id="modal-link" hidden>
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="ln-heading">
+      <div class="adm-head"><h3 id="ln-heading">Add from link</h3><button type="button" class="icon-btn" id="ln-x" aria-label="Close">×</button></div>
+      <p class="note">Paste a YouTube, Vimeo or Google Drive link, a link to a file on GitHub, or a direct link to a photo, video or document.</p>
+      <form id="link-form">
+        <div class="field"><label for="ln-url">Link</label><input id="ln-url" type="text" inputmode="url" autocomplete="off" placeholder="https://" required></div>
+        <p class="detect mono" id="ln-detect" aria-live="polite"></p>
+        <div class="field"><label for="ln-title">Title</label><input id="ln-title" type="text" maxlength="120" required></div>
+        <div class="field"><label for="ln-desc">Description (optional)</label><textarea id="ln-desc" maxlength="300"></textarea></div>
+        <div class="actions">
+          <button class="btn" type="submit" id="ln-btn">Add to site</button>
+          <button class="btn ghost" type="button" id="ln-cancel">Cancel</button>
+        </div>
+      </form>
+      <p class="status" id="ln-status" role="status" aria-live="polite"></p>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  /* ---------- EDIT HERE ---------- */
+  var PHOTO_SRC = 'assets/photo.jpg';
+  var TECH = ['MikroTik', 'Wireshark', 'Nmap', 'Kali Linux', 'Metasploit', 'Python', 'Windows Server', 'VLANs',
+              'DHCP', 'DNS', 'FortiGate', 'Zabbix', 'GNS3', 'Packet Tracer', 'VMware', 'OTDR'];
+  var PALETTE = ['#8B5CF6', '#38BDF8', '#F472B6', '#34D399', '#FBBF24', '#F87171'];
+  var CHIPS = ['Network Admin', 'Cybersecurity', 'IT Audit'];
+  var ADMIN = {
+    iter: 150000,
+    salt: '078183f445a1110b6453667136e482e8',
+    kekSalt: 'ee52a552947489e2ca48090fbe1554e4',
+    hash: '8192557c5c4442af8650522eae93c1c43d1747a1086e2bfcce1e680b8daa1d4c'
+  };
+  var DEFAULT_MANIFEST = {"version": 1, "items": [{"id": "p1", "kind": "photo", "title": "Rooftop radio installation", "desc": "", "path": "media/field-01-rooftop-radio.jpg", "ext": "jpg", "size": 267141, "added": "2026-10-13T00:00:10Z"}, {"id": "p2", "kind": "photo", "title": "Radios and dishes on a mast", "desc": "", "path": "media/field-02-radios-on-mast.jpg", "ext": "jpg", "size": 130912, "added": "2026-10-13T00:00:09Z"}, {"id": "p3", "kind": "photo", "title": "On site at Port Autonome de Douala", "desc": "", "path": "media/field-03-port-of-douala.jpg", "ext": "jpg", "size": 156288, "added": "2026-10-13T00:00:08Z"}, {"id": "p4", "kind": "photo", "title": "Radio installation on a tower", "desc": "", "path": "media/field-04-tower-radio-install.jpg", "ext": "jpg", "size": 154144, "added": "2026-10-13T00:00:07Z"}, {"id": "cv", "kind": "document", "title": "Curriculum Vitae", "desc": "Network Administration & Security · IT Audit · Cybersecurity", "path": "media/Curriculum_Vitae_Kouegoue_Nana_Wilfried.pdf", "ext": "pdf", "size": 127501, "added": "2026-10-13T00:00:00.000Z"}]};
+  /* ------------------------------- */
+
+//#CORE_START
+  var Core = (function () {
+    var enc = new TextEncoder(), dec = new TextDecoder();
+    function hex(buf) { return Array.prototype.map.call(new Uint8Array(buf), function (b) { return ('0' + b.toString(16)).slice(-2); }).join(''); }
+    function unhex(h) { var o = new Uint8Array(h.length / 2); for (var i = 0; i < o.length; i++) o[i] = parseInt(h.substr(i * 2, 2), 16); return o; }
+    function toB64(bytes) { var s = '', CH = 0x8000; for (var i = 0; i < bytes.length; i += CH) s += String.fromCharCode.apply(null, bytes.subarray(i, i + CH)); return btoa(s); }
+    function fromB64(b64) { var s = atob(String(b64).replace(/\s/g, '')), o = new Uint8Array(s.length); for (var i = 0; i < s.length; i++) o[i] = s.charCodeAt(i); return o; }
+    function baseKey(pw) { return crypto.subtle.importKey('raw', enc.encode(pw), 'PBKDF2', false, ['deriveBits', 'deriveKey']); }
+    function pbkdf2Hex(pw, saltHex, iter) {
+      return baseKey(pw).then(function (k) {
+        return crypto.subtle.deriveBits({ name: 'PBKDF2', hash: 'SHA-256', salt: unhex(saltHex), iterations: iter }, k, 256);
+      }).then(hex);
+    }
+    function aesKey(pw, saltHex, iter) {
+      return baseKey(pw).then(function (k) {
+        return crypto.subtle.deriveKey({ name: 'PBKDF2', hash: 'SHA-256', salt: unhex(saltHex), iterations: iter },
+          k, { name: 'AES-GCM', length: 256 }, false, ['encrypt', 'decrypt']);
+      });
+    }
+    function encryptText(key, text) {
+      var iv = crypto.getRandomValues(new Uint8Array(12));
+      return crypto.subtle.encrypt({ name: 'AES-GCM', iv: iv }, key, enc.encode(text)).then(function (ct) {
+        return { iv: toB64(iv), ct: toB64(new Uint8Array(ct)) };
+      });
+    }
+    function decryptText(key, o) {
+      return crypto.subtle.decrypt({ name: 'AES-GCM', iv: fromB64(o.iv) }, key, fromB64(o.ct)).then(function (pt) { return dec.decode(pt); });
+    }
+    function uid() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 6); }
+    function safeName(n) {
+      var s = String(n || 'file').replace(/[^A-Za-z0-9._-]+/g, '_').replace(/^[_.]+|_+$/g, '');
+      if (!s) s = 'file';
+      return s.slice(-80);
+    }
+    function extOf(n) { var m = /\.([A-Za-z0-9]+)$/.exec(n || ''); return m ? m[1].toLowerCase() : ''; }
+    function prettyTitle(name) {
+      var s = String(name || '').replace(/\.[^.]+$/, '').replace(/[_-]+/g, ' ').replace(/\s+/g, ' ').trim();
+      return s ? s.charAt(0).toUpperCase() + s.slice(1) : 'Untitled';
+    }
+    var VIDEO_EXT = ['mp4', 'webm', 'ogv', 'm4v'];
+    var PHOTO_EXT = ['jpg', 'jpeg', 'png', 'webp', 'gif'];
+    var DOC_EXT = ['pdf', 'doc', 'docx', 'ppt', 'pptx', 'xls', 'xlsx', 'txt', 'csv', 'md'];
+    function classifyExt(ext) {
+      if (VIDEO_EXT.indexOf(ext) !== -1) return 'video';
+      if (PHOTO_EXT.indexOf(ext) !== -1) return 'photo';
+      if (DOC_EXT.indexOf(ext) !== -1) return 'document';
+      return null;
+    }
+    function embedUrl(url) {
+      var u;
+      try { u = new URL(url); } catch (e) { return null; }
+      if (u.protocol !== 'https:' && u.protocol !== 'http:') return null;
+      var host = u.hostname.replace(/^www\./, '').replace(/^m\./, ''), id = null, m;
+      if (host === 'youtube.com' || host === 'youtube-nocookie.com') {
+        if (u.pathname === '/watch') id = u.searchParams.get('v');
+        else if ((m = /^\/(embed|shorts|live)\/([^/?#]+)/.exec(u.pathname))) id = m[2];
+        if (id && /^[A-Za-z0-9_-]{6,20}$/.test(id)) return { type: 'iframe', src: 'https://www.youtube-nocookie.com/embed/' + id };
+        return null;
+      }
+      if (host === 'youtu.be') {
+        id = u.pathname.slice(1).split('/')[0];
+        if (/^[A-Za-z0-9_-]{6,20}$/.test(id)) return { type: 'iframe', src: 'https://www.youtube-nocookie.com/embed/' + id };
+        return null;
+      }
+      if (host === 'vimeo.com' || host === 'player.vimeo.com') {
+        if ((m = /\/(\d{5,12})(?:$|[/?#])/.exec(u.pathname + '/'))) return { type: 'iframe', src: 'https://player.vimeo.com/video/' + m[1] };
+        return null;
+      }
+      if (host === 'drive.google.com') {
+        if ((m = /^\/file\/d\/([A-Za-z0-9_-]{10,})/.exec(u.pathname))) return { type: 'iframe', src: 'https://drive.google.com/file/d/' + m[1] + '/preview' };
+        return { type: 'external', src: u.href };
+      }
+      if (VIDEO_EXT.indexOf(extOf(u.pathname)) !== -1) return { type: 'video', src: u.href };
+      return { type: 'external', src: u.href };
+    }
+    function normalizeUrl(input) {
+      var s = String(input || '').trim();
+      if (!s) return null;
+      if (!/^[a-z][a-z0-9+.-]*:/i.test(s)) s = 'https://' + s;
+      var u;
+      try { u = new URL(s); } catch (e) { return null; }
+      if (u.protocol !== 'https:' && u.protocol !== 'http:') return null;
+      if (u.hostname === 'github.com' || u.hostname === 'www.github.com') {
+        var m = /^\/([^/]+)\/([^/]+)\/(?:blob|raw)\/([^/]+)\/(.+)$/.exec(u.pathname);
+        if (m) return 'https://raw.githubusercontent.com/' + m[1] + '/' + m[2] + '/' + m[3] + '/' + m[4];
+      }
+      return u.href;
+    }
+    function classifyUrl(input) {
+      var url = normalizeUrl(input);
+      if (!url) return null;
+      var emb = embedUrl(url), u = new URL(url), ext = extOf(u.pathname), cls = classifyExt(ext);
+      if (emb && emb.type === 'iframe') {
+        return { url: url, kind: 'link', ext: '', label: /drive\.google/.test(emb.src) ? 'Google Drive file' : (/vimeo/.test(emb.src) ? 'Vimeo video' : 'YouTube video') };
+      }
+      if (cls === 'photo') return { url: url, kind: 'photo', ext: ext, label: 'Photo' };
+      if (cls === 'document') return { url: url, kind: 'document', ext: ext, label: 'Document' };
+      if (cls === 'video') return { url: url, kind: 'link', ext: ext, label: 'Video file' };
+      return { url: url, kind: 'link', ext: '', label: 'Web link' };
+    }
+    function isSafePath(p) {
+      return typeof p === 'string' && (/^media\/[A-Za-z0-9._-]+$/.test(p) || /^https?:\/\//i.test(p) || /^blob:/i.test(p) ||
+        /^data:(application\/pdf|image\/(jpeg|png|webp));base64,/i.test(p));
+    }
+    var KINDS = ['video', 'link', 'photo', 'document'];
+    function cleanManifest(m) {
+      var items = (m && Array.isArray(m.items)) ? m.items : [];
+      return { version: 1, items: items.filter(function (i) {
+        return i && typeof i.id === 'string' && typeof i.title === 'string' && isSafePath(i.path) && KINDS.indexOf(i.kind) !== -1;
+      }) };
+    }
+    function explain(status, msg) {
+      if (status === 401) return 'GitHub rejected the token (invalid or expired).';
+      if (status === 403) return 'Access denied. Give the token "Contents: Read and write" on this repository.';
+      if (status === 404) return 'Repository, branch or file not found, or the token cannot see it.';
+      if (status === 409 || status === 422) return 'The site changed while saving. Please try again.';
+      return 'GitHub error' + (status ? ' (' + status + ')' : '') + (msg ? ': ' + msg : '');
+    }
+    function GitHub(cfg, fetchImpl) {
+      var root = 'https://api.github.com/repos/' + encodeURIComponent(cfg.owner) + '/' + encodeURIComponent(cfg.repo);
+      var branch = cfg.branch || 'main';
+      function headers() {
+        return { 'Authorization': 'Bearer ' + cfg.token, 'Accept': 'application/vnd.github+json',
+                 'X-GitHub-Api-Version': '2022-11-28', 'Content-Type': 'application/json' };
+      }
+      function call(method, url, body) {
+        return fetchImpl(url, { method: method, headers: headers(), body: body ? JSON.stringify(body) : undefined }).then(function (r) {
+          if (r.status === 404 && method === 'GET') return null;
+          if (!r.ok) {
+            return r.json().catch(function () { return {}; }).then(function (j) {
+              var e = new Error(explain(r.status, j && j.message)); e.status = r.status; throw e;
+            });
+          }
+          return r.json();
+        });
+      }
+      function contentsUrl(path) { return root + '/contents/' + path.split('/').map(encodeURIComponent).join('/'); }
+      function getFile(path) { return call('GET', contentsUrl(path) + '?ref=' + encodeURIComponent(branch)); }
+      function listDir(path) { return getFile(path).then(function (r) { return Array.isArray(r) ? r : []; }); }
+      function putFile(path, b64, message, sha) {
+        var body = { message: message, content: b64, branch: branch };
+        if (sha) body.sha = sha;
+        return call('PUT', contentsUrl(path), body);
+      }
+      function removeFile(path, message) {
+        return getFile(path).then(function (f) {
+          if (!f || !f.sha) return null;
+          return call('DELETE', contentsUrl(path), { message: message, sha: f.sha, branch: branch });
+        });
+      }
+      function readManifest() {
+        return getFile('media.json').then(function (f) {
+          if (!f || !f.content) return { manifest: { version: 1, items: [] }, sha: f ? f.sha : null };
+          var text; try { text = dec.decode(fromB64(f.content)); } catch (e) { text = ''; }
+          var parsed; try { parsed = JSON.parse(text); } catch (e) { parsed = null; }
+          return { manifest: cleanManifest(parsed), sha: f.sha };
+        });
+      }
+      function writeManifest(manifest, sha, message) {
+        return putFile('media.json', toB64(enc.encode(JSON.stringify(manifest, null, 2))), message, sha);
+      }
+      function mutate(fn, message, retried) {
+        return readManifest().then(function (r) {
+          var next = fn(r.manifest);
+          return writeManifest(next, r.sha, message);
+        }).catch(function (e) {
+          if (!retried && (e.status === 409 || e.status === 422)) return mutate(fn, message, true);
+          throw e;
+        });
+      }
+      function test() {
+        return call('GET', root).then(function (j) {
+          if (!j) throw new Error(explain(404));
+          if (j.permissions && j.permissions.push === false) throw new Error('The token can read this repository but cannot write to it.');
+          return j;
+        });
+      }
+      return { getFile: getFile, listDir: listDir, putFile: putFile, removeFile: removeFile, readManifest: readManifest, mutate: mutate, test: test };
+    }
+    return { pbkdf2Hex: pbkdf2Hex, aesKey: aesKey, encryptText: encryptText, decryptText: decryptText, uid: uid,
+             safeName: safeName, extOf: extOf, prettyTitle: prettyTitle, classifyExt: classifyExt, embedUrl: embedUrl,
+             normalizeUrl: normalizeUrl, classifyUrl: classifyUrl, isSafePath: isSafePath, cleanManifest: cleanManifest,
+             GitHub: GitHub, toB64: toB64, VIDEO_EXT: VIDEO_EXT, PHOTO_EXT: PHOTO_EXT, DOC_EXT: DOC_EXT };
+  })();
+//#CORE_END
+
+  function $(id) { return document.getElementById(id); }
+  function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
+  function getY() { return window.pageYOffset || document.documentElement.scrollTop || 0; }
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+  function fmtSize(n) {
+    if (!n && n !== 0) return '';
+    if (n < 1024) return n + ' B';
+    if (n < 1048576) return Math.round(n / 1024) + ' KB';
+    return (n / 1048576).toFixed(1) + ' MB';
+  }
+
+  /* ---------- sections, dots, reveal ---------- */
+  var ids = ['hero', 'about', 'skills', 'experience', 'projects', 'media', 'tech', 'contact'];
+  var TECH_IDX = ids.indexOf('tech');
+  var secs = ids.map($);
+  var dots = document.querySelectorAll('.dots a');
+  var W = window.innerWidth, H = window.innerHeight;
+  var anchors = [];
+  var galleryOn = false, homeScroll = 0;
+
+  function computeAnchors() {
+    if (galleryOn) return;
+    var y = getY();
+    anchors = secs.map(function (s) { return s.getBoundingClientRect().top + y + s.offsetHeight / 2 - H / 2; });
+  }
+  function nearest(y) {
+    var best = 0, bd = 1e9;
+    for (var i = 0; i < anchors.length; i++) { var d = Math.abs(y - anchors[i]); if (d < bd) { bd = d; best = i; } }
+    return best;
+  }
+  function updateDots() {
+    if (galleryOn) return;
+    var n = nearest(getY());
+    for (var i = 0; i < dots.length; i++) {
+      dots[i].classList.toggle('on', i === n);
+      if (i === n) dots[i].setAttribute('aria-current', 'true'); else dots[i].removeAttribute('aria-current');
+    }
+  }
+  var io = null;
+  function observeReveals(root) {
+    var list = (root || document).querySelectorAll('.rev:not(.in)');
+    Array.prototype.forEach.call(list, function (r) { if (io) io.observe(r); else r.classList.add('in'); });
+  }
+  if ('IntersectionObserver' in window) {
+    io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+  }
+  observeReveals();
+  computeAnchors();
+  updateDots();
+  window.addEventListener('scroll', updateDots, { passive: true });
+
+  /* ---------- public data + rendering ---------- */
+  var HOME_TITLE = document.title;
+  var PUBLIC = [], BLOBS = {};
+  function revokeBlobs() { Object.keys(BLOBS).forEach(function (k) { try { URL.revokeObjectURL(BLOBS[k]); } catch (e) {} }); BLOBS = {}; }
+  function srcOf(it) {
+    if (it.blob) { if (!BLOBS[it.id]) BLOBS[it.id] = URL.createObjectURL(it.blob); return BLOBS[it.id]; }
+    return it.path;
+  }
+  function ytThumb(it) {
+    if (it.kind !== 'link') return null;
+    var e = Core.embedUrl(it.path), m = e && e.type === 'iframe' && /youtube-nocookie\.com\/embed\/([\w-]+)/.exec(e.src);
+    return m ? 'https://i.ytimg.com/vi/' + m[1] + '/hqdefault.jpg' : null;
+  }
+  function renderMedia(items) {
+    var vg = $('media-videos'), dg = $('media-docs');
+    vg.textContent = ''; dg.textContent = '';
+    var nv = 0, nd = 0;
+    items.forEach(function (it) {
+      var path = srcOf(it), card = el('article', 'mitem panel rev');
+      if (it.kind === 'document') {
+        var row = el('div', 'doc-row');
+        row.appendChild(el('div', 'doc-ext mono', (it.ext || Core.extOf(it.path) || 'file').slice(0, 5)));
+        var txt = el('div', 'txt');
+        txt.appendChild(el('h4', null, it.title));
+        var meta = [it.size ? fmtSize(it.size) : '', it.desc || ''].filter(Boolean).join(' · ');
+        if (meta) txt.appendChild(el('p', null, meta));
+        row.appendChild(txt); card.appendChild(row);
+        var act = el('div', 'actions');
+        var open = el('a', 'btn ghost sm', 'Open'); open.href = path; open.target = '_blank'; open.rel = 'noopener';
+        var dl = el('a', 'btn sm', 'Download'); dl.href = path; dl.setAttribute('download', it.title.replace(/[^\w.-]+/g, '_') + (it.ext ? '.' + it.ext : ''));
+        act.appendChild(open); act.appendChild(dl); card.appendChild(act);
+        if (it.local) card.appendChild(el('span', 'badge mono', 'Local preview'));
+        dg.appendChild(card); nd++;
+      } else {
+        var wrap = el('div', 'vwrap'), kind = 'video', src = path;
+        if (it.kind === 'link') {
+          var emb = Core.embedUrl(it.path);
+          if (!emb) return;
+          kind = emb.type; src = emb.src;
+        }
+        if (kind === 'iframe') {
+          var f = document.createElement('iframe');
+          f.src = src; f.title = it.title; f.loading = 'lazy'; f.allowFullscreen = true;
+          f.setAttribute('allow', 'encrypted-media; picture-in-picture; fullscreen');
+          f.referrerPolicy = 'strict-origin-when-cross-origin';
+          wrap.appendChild(f); card.appendChild(wrap);
+        } else if (kind === 'video') {
+          var v = document.createElement('video');
+          v.controls = true; v.preload = 'metadata'; v.setAttribute('playsinline', ''); v.src = src;
+          wrap.appendChild(v); card.appendChild(wrap);
+        } else {
+          var ext = el('a', 'btn ghost sm', 'Open link ↗'); ext.href = src; ext.target = '_blank'; ext.rel = 'noopener noreferrer';
+          card.appendChild(ext);
+        }
+        card.appendChild(el('h4', null, it.title));
+        if (it.desc) card.appendChild(el('p', null, it.desc));
+        if (it.local) card.appendChild(el('span', 'badge mono', 'Local preview'));
+        vg.appendChild(card); nv++;
+      }
+    });
+    if (!nv) vg.appendChild(el('p', 'empty', 'Lab demonstrations and screen recordings will be added here.'));
+    if (!nd) dg.appendChild(el('p', 'empty', 'No documents yet.'));
+    observeReveals($('media'));
+  }
+  function renderTeaser(photos) {
+    var box = $('photo-teaser');
+    box.textContent = '';
+    if (!photos.length) { box.hidden = true; return; }
+    box.hidden = false;
+    var left = el('div');
+    left.appendChild(el('p', 't-title', 'Photo gallery'));
+    left.appendChild(el('p', 't-sub', photos.length + (photos.length === 1 ? ' photo' : ' photos')));
+    var go = el('a', 'btn', 'View all photos'); go.href = '#photos';
+    left.appendChild(go);
+    var strip = el('div', 'strip');
+    photos.slice(0, 3).forEach(function (p) {
+      var im = document.createElement('img'); im.src = srcOf(p); im.alt = p.title; im.loading = 'lazy'; im.decoding = 'async';
+      strip.appendChild(im);
+    });
+    box.appendChild(left); box.appendChild(strip);
+  }
+  function renderGallery() {
+    var photos = PUBLIC.filter(function (i) { return i.kind === 'photo'; });
+    var grid = $('gal-grid'); grid.textContent = '';
+    $('gal-count').textContent = photos.length ? photos.length + (photos.length === 1 ? ' photo' : ' photos') : 'No photos yet.';
+    photos.forEach(function (p, idx) {
+      var cell = el('div', 'gal-item'), b = el('button', 'gal-open'); b.type = 'button'; b.setAttribute('aria-label', 'View photo: ' + p.title);
+      var im = document.createElement('img'); im.src = srcOf(p); im.alt = p.title; im.loading = 'lazy'; im.decoding = 'async';
+      b.appendChild(im); b.appendChild(el('span', 'gal-cap', p.title));
+      b.addEventListener('click', function () { openLb(idx); });
+      cell.appendChild(b);
+      if (admin.unlocked) {
+        var del = el('button', 'gal-del', 'Remove'); del.type = 'button';
+        del.setAttribute('aria-label', del.textContent + ' photo: ' + p.title);
+        del.addEventListener('click', function () { removeItem(p, del); });
+        cell.appendChild(del);
+      }
+      grid.appendChild(cell);
+    });
+  }
+  function hiddenIds() { try { return JSON.parse(localStorage.getItem('pf_hidden') || '[]'); } catch (e) { return []; } }
+  function setHidden(a) { try { localStorage.setItem('pf_hidden', JSON.stringify(a)); } catch (e) {} }
+  function localMode() { var c = loadCfg(); return !(c && c.owner && c.repo && c.tok); }
+  function loadPublicManifest() {
+    return fetch('media.json?t=' + Date.now(), { cache: 'no-store' }).then(function (r) {
+      if (!r.ok) throw new Error('no manifest');
+      return r.json();
+    }).then(Core.cleanManifest).catch(function () { return Core.cleanManifest(DEFAULT_MANIFEST); });
+  }
+  function refreshPublic() {
+    return Promise.all([loadPublicManifest(), Local.list().catch(function () { return []; })]).then(function (r) {
+      revokeBlobs();
+      var local = r[1].map(function (i) { i.local = true; return i; });
+      var hid = localMode() ? hiddenIds() : [];
+      PUBLIC = r[0].items.filter(function (i) { return hid.indexOf(i.id) === -1; }).concat(local);
+      renderMedia(PUBLIC.filter(function (i) { return i.kind !== 'photo'; }));
+      renderTeaser(PUBLIC.filter(function (i) { return i.kind === 'photo'; }));
+      if (galleryOn) renderGallery();
+    });
+  }
+
+  /* ---------- lightbox ---------- */
+  var lb = { i: 0, list: [], opener: null };
+  function showLb() {
+    var it = lb.list[lb.i]; if (!it) return;
+    $('lb-img').src = srcOf(it); $('lb-img').alt = it.title;
+    $('lb-t').textContent = it.title; $('lb-d').textContent = it.desc || '';
+    $('lb-n').textContent = (lb.i + 1) + ' / ' + lb.list.length;
+    $('lb-prev').hidden = $('lb-next').hidden = lb.list.length < 2;
+  }
+  function openLb(i) {
+    lb.list = PUBLIC.filter(function (x) { return x.kind === 'photo'; }); lb.i = i; lb.opener = document.activeElement;
+    $('lb').hidden = false; showLb(); $('lb-x').focus();
+  }
+  function stepLb(d) { lb.i = (lb.i + d + lb.list.length) % lb.list.length; showLb(); }
+  function closeLb() {
+    $('lb').hidden = true; $('lb-img').removeAttribute('src');
+    if (lb.opener && lb.opener.focus) lb.opener.focus();
+  }
+  $('lb-x').addEventListener('click', closeLb);
+  $('lb-prev').addEventListener('click', function () { stepLb(-1); });
+  $('lb-next').addEventListener('click', function () { stepLb(1); });
+  $('lb').addEventListener('mousedown', function (e) { if (e.target === $('lb')) closeLb(); });
+
+  /* ---------- views: portfolio (scroll) and photos page ---------- */
+  function jump(y) {
+    var root = document.documentElement; root.style.scrollBehavior = 'auto';
+    window.scrollTo(0, y); root.style.scrollBehavior = '';
+  }
+  function showGallery() {
+    if (galleryOn) return;
+    homeScroll = getY(); galleryOn = true;
+    document.body.classList.add('view-gallery'); jump(0);
+    document.title = 'Photos | Kouegoue Nana Wilfried';
+    syncAdminUI();
+  }
+  function showHome(target) {
+    if (galleryOn) {
+      galleryOn = false; document.body.classList.remove('view-gallery');
+      document.title = HOME_TITLE; computeAnchors(); jump(homeScroll);
+    }
+    if (target && target !== 'admin') { var t = $(target); if (t) t.scrollIntoView(); }
+    updateDots();
+  }
+  function route() {
+    var h = (location.hash || '').slice(1);
+    if (h === 'photos') { showGallery(); return; }
+    if (galleryOn) showHome(h || null);
+    if (h === 'admin' && !admin.open) openAdmin();
+  }
+
+  /* ---------- local (this browser) storage: used until GitHub is configured ---------- */
+  var Local = (function () {
+    var dbp = null;
+    function db() {
+      if (dbp) return dbp;
+      dbp = new Promise(function (res, rej) {
+        if (!window.indexedDB) { rej(new Error('Local storage is not available in this browser.')); return; }
+        var rq = indexedDB.open('pf-admin', 1);
+        rq.onupgradeneeded = function () { rq.result.createObjectStore('items', { keyPath: 'id' }); };
+        rq.onsuccess = function () { res(rq.result); };
+        rq.onerror = function () { rej(rq.error || new Error('Could not open local storage.')); };
+      });
+      return dbp;
+    }
+    function tx(mode, fn) {
+      return db().then(function (d) {
+        return new Promise(function (res, rej) {
+          var t = d.transaction('items', mode), s = t.objectStore('items'), out = fn(s);
+          t.oncomplete = function () { res(out && out.result !== undefined ? out.result : undefined); };
+          t.onerror = t.onabort = function () { rej(t.error || new Error('Local storage error.')); };
+        });
+      });
+    }
+    return {
+      list: function () { return tx('readonly', function (s) { return s.getAll(); }).then(function (a) { return (a || []).sort(function (x, y) { return (y.added || '') > (x.added || '') ? 1 : -1; }); }); },
+      add: function (item) { return tx('readwrite', function (s) { return s.put(item); }); },
+      remove: function (id) { return tx('readwrite', function (s) { return s.delete(id); }); },
+      update: function (id, patch) {
+        return db().then(function (d) {
+          return new Promise(function (res, rej) {
+            var t = d.transaction('items', 'readwrite'), s = t.objectStore('items'), g = s.get(id);
+            g.onsuccess = function () { var r = g.result; if (r) { Object.keys(patch).forEach(function (k) { r[k] = patch[k]; }); s.put(r); } };
+            t.oncomplete = function () { res(); };
+            t.onerror = t.onabort = function () { rej(t.error || new Error('Local storage error.')); };
+          });
+        });
+      }
+    };
+  })();
+
+  /* ---------- admin: state + storage adapter ---------- */
+  var admin = { open: false, unlocked: false, key: null, token: null, fails: 0, lockUntil: 0, opener: null, view: 'all', items: [], q: '', sort: 'new' };
+  function loadCfg() { try { return JSON.parse(localStorage.getItem('pf_cfg') || 'null'); } catch (e) { return null; } }
+  function saveCfg(c) { try { localStorage.setItem('pf_cfg', JSON.stringify(c)); return true; } catch (e) { return false; } }
+  function ghReady() { var c = loadCfg(); return !!(c && c.owner && c.repo && admin.token); }
+  function gh() {
+    var c = loadCfg();
+    return Core.GitHub({ owner: c.owner, repo: c.repo, branch: c.branch || 'main', token: admin.token }, window.fetch.bind(window));
+  }
+  function setStatus(id, msg, kind) { var n = $(id); n.textContent = msg || ''; n.className = 'status' + (kind ? ' ' + kind : ''); }
+  function fileToB64(file) {
+    return new Promise(function (res, rej) {
+      var fr = new FileReader();
+      fr.onload = function () { res(String(fr.result).split(',')[1] || ''); };
+      fr.onerror = function () { rej(new Error('Could not read the file.')); };
+      fr.readAsDataURL(file);
+    });
+  }
+  function seq(list, fn) { return list.reduce(function (p, x, i) { return p.then(function () { return fn(x, i); }); }, Promise.resolve()); }
+  function optimizeImage(file) {
+    return new Promise(function (res) {
+      if (typeof Image === 'undefined' || !/^image\/(jpeg|png|webp)$/.test(file.type)) { res(file); return; }
+      var url = URL.createObjectURL(file), img = new Image();
+      img.onload = function () {
+        URL.revokeObjectURL(url);
+        var w = img.naturalWidth, h = img.naturalHeight, s = Math.min(1, 1920 / Math.max(w, h));
+        if (s === 1 && file.size < 600 * 1024) { res(file); return; }
+        var c = document.createElement('canvas'); c.width = Math.round(w * s); c.height = Math.round(h * s);
+        var g = c.getContext('2d'); g.fillStyle = '#fff'; g.fillRect(0, 0, c.width, c.height); g.drawImage(img, 0, 0, c.width, c.height);
+        c.toBlob(function (b) {
+          if (!b || b.size >= file.size) { res(file); return; }
+          res(new File([b], file.name.replace(/\.[^.]+$/, '') + '.jpg', { type: 'image/jpeg' }));
+        }, 'image/jpeg', 0.85);
+      };
+      img.onerror = function () { URL.revokeObjectURL(url); res(file); };
+      img.src = url;
+    });
+  }
+
+  var adapter = {
+    list: function () {
+      if (ghReady()) return gh().readManifest().then(function (r) { return r.manifest.items; });
+      return Promise.all([loadPublicManifest(), Local.list().catch(function () { return []; })]).then(function (r) {
+        var hid = hiddenIds();
+        var pub = r[0].items.filter(function (i) { return hid.indexOf(i.id) === -1; }).map(function (i) { i.readonly = true; return i; });
+        return r[1].map(function (i) { i.local = true; return i; }).concat(pub);
+      });
+    },
+    addMany: function (entries, progress) {
+      progress = progress || function () {};
+      if (!ghReady()) {
+        return seq(entries, function (e, i) {
+          if (e.file) e.item.blob = e.file;
+          return Local.add(e.item).then(function () { progress(i, 'done'); }).catch(function (err) { progress(i, 'error', err.message); });
+        });
+      }
+      var g = gh(), uploaded = [], ok = [];
+      return seq(entries, function (e, i) {
+        progress(i, 'uploading');
+        var step = Promise.resolve();
+        if (e.file) {
+          step = fileToB64(e.file).then(function (b64) {
+            var path = 'media/' + e.item.id + '-' + Core.safeName(e.file.name);
+            e.item.path = path;
+            return g.putFile(path, b64, 'Add ' + e.item.title).then(function () { uploaded.push(path); });
+          });
+        }
+        return step.then(function () { ok.push(e); progress(i, 'saving'); }).catch(function (err) { progress(i, 'error', err.message); });
+      }).then(function () {
+        if (!ok.length) return;
+        return g.mutate(function (m) { ok.slice().reverse().forEach(function (e) { m.items.unshift(e.item); }); return m; }, 'Add ' + ok.length + ' item(s)')
+          .then(function () { ok.forEach(function (e) { progress(entries.indexOf(e), 'done'); }); })
+          .catch(function (err) {
+            uploaded.forEach(function (p) { g.removeFile(p, 'Cleanup failed upload').catch(function () {}); });
+            ok.forEach(function (e) { progress(entries.indexOf(e), 'error', err.message); });
+          });
+      });
+    },
+    update: function (item, patch) {
+      if (!ghReady()) return Local.update(item.id, patch);
+      return gh().mutate(function (m) {
+        m.items = m.items.map(function (i) { return i.id === item.id ? Object.assign({}, i, patch) : i; });
+        return m;
+      }, 'Edit: ' + (patch.title || item.title));
+    },
+    remove: function (item) {
+      if (!ghReady()) {
+        if (item.readonly) { var h = hiddenIds(); h.push(item.id); setHidden(h); return Promise.resolve(); }
+        return Local.remove(item.id);
+      }
+      var g = gh();
+      return g.mutate(function (m) { m.items = m.items.filter(function (i) { return i.id !== item.id; }); return m; }, 'Remove: ' + item.title)
+        .then(function () {
+          if (/^media\/[A-Za-z0-9._-]+$/.test(item.path)) return g.removeFile(item.path, 'Delete ' + item.path).catch(function () {});
+        });
+    },
+    sync: function () {
+      if (!ghReady()) return Promise.reject(new Error('Connect GitHub first (GitHub tab in the sidebar).'));
+      var g = gh();
+      return Promise.all([g.listDir('media'), g.readManifest()]).then(function (r) {
+        var known = {}, fresh = [];
+        r[1].manifest.items.forEach(function (i) { known[i.path] = true; });
+        r[0].forEach(function (f, n) {
+          if (f.type !== 'file' || !/^[A-Za-z0-9._-]+$/.test(f.name)) return;
+          var ext = Core.extOf(f.name), kind = Core.classifyExt(ext), path = 'media/' + f.name;
+          if (!kind || known[path]) return;
+          fresh.push({ id: Core.uid() + n, kind: kind, title: Core.prettyTitle(f.name), desc: '', path: path, ext: ext, size: f.size, added: new Date().toISOString() });
+        });
+        if (!fresh.length) return 0;
+        return g.mutate(function (m) { fresh.forEach(function (i) { m.items.unshift(i); }); return m; }, 'Sync media folder').then(function () { return fresh.length; });
+      });
+    }
+  };
+
+  /* ---------- admin: dashboard UI ---------- */
+  var KIND_LABEL = { video: 'Video', link: 'Link', photo: 'Photo', document: 'Doc' };
+  var KIND_TITLE = { all: 'Library', video: 'Videos', photo: 'Photos', document: 'Documents' };
+  function group(it) { return it.kind === 'link' ? 'video' : it.kind; }
+  function renderModeNote() {
+    var n = $('mode-note'); n.textContent = '';
+    if (ghReady()) {
+      n.textContent = 'Connected to GitHub. Adding or removing anything is saved to your repository (removing also deletes the file) and the live site updates after GitHub Pages rebuilds, about a minute.';
+      return;
+    }
+    n.appendChild(document.createTextNode('Not connected to GitHub yet: uploads and removals only apply in this browser, and visitors will not see them. Connect your repository to add and delete things on the live site. '));
+    var b = el('button', 'btn sm', 'Connect GitHub'); b.type = 'button';
+    b.addEventListener('click', function () { setView('settings'); });
+    n.appendChild(b);
+  }
+  function syncAdminUI() { $('gal-add').hidden = !admin.unlocked; if (galleryOn) renderGallery(); }
+  function updateCounts() {
+    var c = { all: admin.items.length, video: 0, photo: 0, document: 0 };
+    admin.items.forEach(function (i) { c[group(i)]++; });
+    ['all', 'video', 'photo', 'document'].forEach(function (k) { $('c-' + k).textContent = c[k] || ''; });
+  }
+  function copyText(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) return navigator.clipboard.writeText(text);
+    window.prompt('Copy this link:', text); return Promise.resolve();
+  }
+  function absUrl(p) { try { return new URL(p, location.href).href; } catch (e) { return p; } }
+
+  function removeItem(it, btn) {
+    var hideOnly = !ghReady() && it.readonly;
+    var q = hideOnly ? 'Remove "' + it.title + '"?\n\nGitHub is not connected yet, so this only removes it in this browser. Connect GitHub (GitHub tab) to delete it from the live site for everyone.' : 'Remove "' + it.title + '" from the site? This also deletes the file.';
+    if (!window.confirm(q)) return;
+    if (btn) btn.disabled = true;
+    setStatus('admin-status', 'Removing…');
+    return adapter.remove(it).then(function () {
+      setStatus('admin-status', hideOnly ? 'Removed in this browser only. Connect GitHub to delete it from the live site.' : 'Removed.', 'ok');
+      return refreshPublic();
+    }).then(function () { return $('adm-app').hidden ? null : loadLibrary(); })
+      .catch(function (e) { if (btn) btn.disabled = false; setStatus('admin-status', e.message, 'err'); });
+  }
+  function rowFor(it) {
+    var li = el('li', 'row'), th = el('div', 'thumb');
+    th.appendChild(el('span', 'tagk mono', KIND_LABEL[it.kind] || 'File'));
+    var img = null;
+    if (it.kind === 'photo') img = srcOf(it); else img = ytThumb(it);
+    if (img) {
+      var im = document.createElement('img'); im.src = img; im.alt = ''; im.loading = 'lazy';
+      im.onerror = function () { im.remove(); };
+      th.appendChild(im);
+    } else {
+      th.appendChild(el('span', 'mono', it.kind === 'document' ? (it.ext || 'file').toUpperCase().slice(0, 5) : '▶'));
+    }
+    li.appendChild(th);
+    var body = el('div', 'r-body');
+    body.appendChild(el('div', 'r-title', it.title));
+    var meta = el('div', 'r-meta');
+    if (it.readonly) meta.appendChild(el('span', 'chip mono', 'Published'));
+    if (it.local) meta.appendChild(el('span', 'chip mono', 'This browser only'));
+    if (it.size) meta.appendChild(el('span', 'chip mono', fmtSize(it.size)));
+    if (it.added) meta.appendChild(el('span', 'chip mono', it.added.slice(0, 10)));
+    body.appendChild(meta);
+    if (!it.blob && !/^data:/.test(it.path)) body.appendChild(el('div', 'r-path mono', it.path));
+    li.appendChild(body);
+    var act = el('div', 'r-act');
+    if (!it.readonly) {
+      var ed = el('button', 'btn ghost sm', 'Edit'); ed.type = 'button';
+      ed.addEventListener('click', function () { startEdit(li, it); });
+      act.appendChild(ed);
+    }
+    if (!it.blob && !/^data:/.test(it.path)) {
+      var cp = el('button', 'btn ghost sm', 'Copy link'); cp.type = 'button';
+      cp.addEventListener('click', function () { copyText(absUrl(it.path)).then(function () { setStatus('admin-status', 'Link copied.', 'ok'); }); });
+      act.appendChild(cp);
+    }
+    var rm = el('button', 'btn danger sm', 'Remove'); rm.type = 'button';
+    rm.addEventListener('click', function () { removeItem(it, rm); });
+    act.appendChild(rm);
+    li.appendChild(act);
+    return li;
+  }
+  function startEdit(li, it) {
+    li.textContent = '';
+    var f = el('form', 'r-edit'), t = document.createElement('input'), d = document.createElement('input');
+    t.type = 'text'; t.value = it.title; t.maxLength = 120; t.required = true; t.setAttribute('aria-label', 'Title');
+    d.type = 'text'; d.value = it.desc || ''; d.maxLength = 300; d.placeholder = 'Description (optional)'; d.setAttribute('aria-label', 'Description');
+    var row = el('div', 'r-act'), save = el('button', 'btn sm', 'Save'), cancel = el('button', 'btn ghost sm', 'Cancel');
+    save.type = 'submit'; cancel.type = 'button';
+    row.appendChild(save); row.appendChild(cancel);
+    f.appendChild(t); f.appendChild(d); f.appendChild(row); li.appendChild(f); t.focus();
+    cancel.addEventListener('click', renderLibrary);
+    f.addEventListener('submit', function (ev) {
+      ev.preventDefault(); save.disabled = true; setStatus('admin-status', 'Saving…');
+      adapter.update(it, { title: t.value.trim() || it.title, desc: d.value.trim() })
+        .then(function () { setStatus('admin-status', 'Saved.', 'ok'); return refreshPublic(); }).then(loadLibrary)
+        .catch(function (e) { save.disabled = false; setStatus('admin-status', e.message, 'err'); });
+    });
+  }
+  function renderLibrary() {
+    var ul = $('lib-list'); ul.textContent = '';
+    $('lib-title').textContent = KIND_TITLE[admin.view] || 'Library';
+    var q = admin.q.toLowerCase();
+    var items = admin.items.filter(function (i) {
+      if (admin.view !== 'all' && group(i) !== admin.view) return false;
+      return !q || (i.title + ' ' + (i.desc || '')).toLowerCase().indexOf(q) !== -1;
+    });
+    items.sort(function (a, b) {
+      if (admin.sort === 'az') return a.title.localeCompare(b.title);
+      var x = a.added || '', y = b.added || '';
+      return admin.sort === 'old' ? (x > y ? 1 : -1) : (x < y ? 1 : -1);
+    });
+    if (hiddenIds().length && !ghReady()) {
+      var hl = el('li'), hb = el('button', 'btn ghost sm', 'Restore ' + hiddenIds().length + ' removed item(s)'); hb.type = 'button';
+      hb.addEventListener('click', restoreHidden); hl.appendChild(hb); ul.appendChild(hl);
+    }
+    if (!items.length) { var li = el('li'); li.appendChild(el('span', 'empty', 'Nothing here yet. Use + New to upload files or add a link.')); ul.appendChild(li); return; }
+    items.forEach(function (it) { ul.appendChild(rowFor(it)); });
+  }
+  function restoreHidden() { setHidden([]); setStatus('admin-status', 'Removed items restored.', 'ok'); return refreshPublic().then(loadLibrary); }
+  function loadLibrary() {
+    if (!admin.items.length) setStatus('admin-status', 'Loading…');
+    return adapter.list().then(function (items) {
+      admin.items = items; updateCounts(); renderLibrary();
+      if ($('admin-status').textContent === 'Loading…') setStatus('admin-status', '');
+    })
+      .catch(function (e) { setStatus('admin-status', e.message, 'err'); });
+  }
+  function setView(v) {
+    admin.view = v;
+    Array.prototype.forEach.call(document.querySelectorAll('.adm-nav button'), function (b) {
+      b.classList.toggle('on', b.getAttribute('data-view') === v);
+    });
+    var isSet = v === 'settings';
+    $('view-lib').hidden = isSet; $('view-set').hidden = !isSet;
+    $('new-btn').parentNode.hidden = isSet; $('adm-search').hidden = isSet; $('adm-sort').hidden = isSet;
+    setStatus('admin-status', '');
+    if (isSet) fillSettings(); else renderLibrary();
+  }
+  function fillSettings() {
+    var c = loadCfg() || {}, owner = c.owner || '', repo = c.repo || '';
+    if (!owner && /\.github\.io$/.test(location.hostname)) {
+      owner = location.hostname.split('.')[0];
+      repo = repo || (location.pathname.split('/')[1] || (owner + '.github.io'));
+    }
+    $('set-owner').value = owner; $('set-repo').value = repo; $('set-branch').value = c.branch || 'main';
+    $('set-token').value = '';
+    $('set-token').placeholder = c.tok ? 'Token saved (leave empty to keep it)' : 'Paste your fine-grained token';
+  }
+  function showApp() {
+    $('adm-login').hidden = true; $('adm-app').hidden = false;
+    syncAdminUI(); renderModeNote(); setView('all'); loadLibrary();
+  }
+  function closeMenus() { $('new-menu').hidden = true; $('new-btn').setAttribute('aria-expanded', 'false'); }
+  function closeModals() { $('modal-up').hidden = true; $('modal-link').hidden = true; }
+  function openAdmin() {
+    admin.opener = document.activeElement; admin.open = true;
+    $('admin').hidden = false; document.body.style.overflow = 'hidden';
+    if (admin.unlocked) showApp();
+    else { $('adm-login').hidden = false; $('adm-app').hidden = true; setTimeout(function () { $('admin-pw').focus(); }, 30); }
+  }
+  function closeAdmin() {
+    closeMenus(); closeModals();
+    admin.open = false; $('admin').hidden = true; document.body.style.overflow = '';
+    if (admin.opener && admin.opener.focus) admin.opener.focus();
+    if (location.hash === '#admin') history.replaceState(null, '', location.pathname + location.search);
+  }
+  function signOut() {
+    closeMenus(); closeModals();
+    admin.unlocked = false; admin.key = null; admin.token = null; admin.items = [];
+    $('adm-app').hidden = true; $('adm-login').hidden = false; syncAdminUI();
+    setStatus('login-status', 'Signed out.'); setTimeout(function () { $('admin-pw').focus(); }, 30);
+  }
+
+  $('open-admin').addEventListener('click', openAdmin);
+  $('gal-admin').addEventListener('click', openAdmin);
+  $('login-close').addEventListener('click', closeAdmin);
+  $('adm-close').addEventListener('click', closeAdmin);
+  $('logout').addEventListener('click', signOut);
+  document.addEventListener('keydown', function (e) {
+    if (!$('lb').hidden) {
+      if (e.key === 'Escape') closeLb();
+      else if (e.key === 'ArrowLeft') stepLb(-1);
+      else if (e.key === 'ArrowRight') stepLb(1);
+      return;
+    }
+    if (e.key !== 'Escape') return;
+    if (!$('modal-up').hidden || !$('modal-link').hidden) { closeModals(); return; }
+    if (!$('new-menu').hidden) { closeMenus(); return; }
+    if (admin.open) closeAdmin();
+  });
+  document.addEventListener('mousedown', function (e) {
+    if (!$('new-menu').hidden && !$('new-btn').parentNode.contains(e.target)) closeMenus();
+  });
+  window.addEventListener('hashchange', route);
+
+  $('login-form').addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    var now = Date.now();
+    if (now < admin.lockUntil) { setStatus('login-status', 'Too many attempts. Try again in ' + Math.ceil((admin.lockUntil - now) / 1000) + ' s.', 'err'); return; }
+    var pw = $('admin-pw').value;
+    if (!pw) return;
+    $('login-btn').disabled = true; setStatus('login-status', 'Checking…');
+    Core.pbkdf2Hex(pw, ADMIN.salt, ADMIN.iter).then(function (h) {
+      if (h !== ADMIN.hash) {
+        admin.fails++;
+        if (admin.fails >= 5) admin.lockUntil = Date.now() + 30000 * Math.min(admin.fails - 4, 10);
+        setStatus('login-status', 'Incorrect password.', 'err');
+        return null;
+      }
+      admin.fails = 0;
+      return Core.aesKey(pw, ADMIN.kekSalt, ADMIN.iter).then(function (key) {
+        admin.key = key; admin.unlocked = true;
+        var c = loadCfg();
+        if (c && c.tok) return Core.decryptText(key, c.tok).then(function (t) { admin.token = t; }).catch(function () { admin.token = null; });
+      }).then(function () { $('admin-pw').value = ''; setStatus('login-status', ''); showApp(); });
+    }).catch(function () { setStatus('login-status', 'Could not verify the password in this browser.', 'err'); })
+      .then(function () { $('login-btn').disabled = false; });
+  });
+
+  Array.prototype.forEach.call(document.querySelectorAll('.adm-nav button'), function (b) {
+    b.addEventListener('click', function () { setView(b.getAttribute('data-view')); });
+  });
+  $('adm-search').addEventListener('input', function () { admin.q = this.value; renderLibrary(); });
+  $('adm-sort').addEventListener('change', function () { admin.sort = this.value; renderLibrary(); });
+
+  /* + New menu */
+  $('new-btn').addEventListener('click', function () {
+    var open = $('new-menu').hidden;
+    $('new-menu').hidden = !open; this.setAttribute('aria-expanded', String(open));
+  });
+  $('m-upload').addEventListener('click', function () { closeMenus(); openUpload(); });
+  $('m-link').addEventListener('click', function () { closeMenus(); openLink(); });
+  $('m-sync').addEventListener('click', function () {
+    closeMenus(); setStatus('admin-status', 'Scanning the media folder…');
+    adapter.sync().then(function (n) {
+      setStatus('admin-status', n ? n + (n === 1 ? ' new file added' : ' new files added') + ' from the media folder.' : 'Everything in the media folder is already listed.', 'ok');
+      return refreshPublic();
+    }).then(loadLibrary).catch(function (e) { setStatus('admin-status', e.message, 'err'); });
+  });
+  $('gal-add').addEventListener('click', function () { admin.opener = document.activeElement; admin.open = true; $('admin').hidden = false; document.body.style.overflow = 'hidden'; showApp(); openUpload(); });
+
+  /* upload modal */
+  var UP = [];
+  function openUpload() { UP = []; renderQueue(); setStatus('up-status', ''); $('modal-up').hidden = false; $('up-files').value = ''; }
+  function queueMsg(f) {
+    if (!f.kind) return 'Type not allowed';
+    if (ghReady() && f.file.size > 50 * 1048576) return 'Over 50 MB: add it as a YouTube/Vimeo link instead';
+    return '';
+  }
+  function addPending(list) {
+    Array.prototype.forEach.call(list, function (file) {
+      var ext = Core.extOf(file.name), kind = Core.classifyExt(ext), f = { file: file, ext: ext, kind: kind, state: 'pending', msg: '' };
+      f.msg = queueMsg(f); if (f.msg) f.state = 'bad';
+      UP.push(f);
+    });
+    renderQueue();
+  }
+  function renderQueue() {
+    var ul = $('up-queue'); ul.textContent = '';
+    UP.forEach(function (f) {
+      var li = el('li', f.state === 'done' ? 'ok' : (f.state === 'bad' || f.state === 'error' ? 'bad' : ''));
+      li.appendChild(el('span', 'q-n', f.file.name + ' · ' + fmtSize(f.file.size)));
+      var label = { pending: 'Ready', optimizing: 'Optimizing…', uploading: 'Uploading…', saving: 'Saving…', done: 'Done', error: f.msg || 'Failed', bad: f.msg }[f.state];
+      li.appendChild(el('span', 'q-s mono', (f.kind ? KIND_LABEL[f.kind] + ' · ' : '') + label));
+      ul.appendChild(li);
+    });
+    var pending = UP.filter(function (f) { return f.state === 'pending'; }).length;
+    $('up-start').disabled = !pending; $('up-start').textContent = pending ? 'Upload ' + pending + (pending === 1 ? ' file' : ' files') : 'Upload';
+  }
+  var drop = $('drop');
+  ['dragenter', 'dragover'].forEach(function (t) { drop.addEventListener(t, function (e) { e.preventDefault(); drop.classList.add('over'); }); });
+  ['dragleave', 'drop'].forEach(function (t) { drop.addEventListener(t, function (e) { e.preventDefault(); drop.classList.remove('over'); }); });
+  drop.addEventListener('drop', function (e) { if (e.dataTransfer && e.dataTransfer.files) addPending(e.dataTransfer.files); });
+  $('up-files').addEventListener('change', function () { addPending(this.files); this.value = ''; });
+  $('up-x').addEventListener('click', closeModals);
+  $('up-cancel').addEventListener('click', closeModals);
+  $('up-start').addEventListener('click', function () {
+    var todo = UP.filter(function (f) { return f.state === 'pending'; });
+    if (!todo.length) return;
+    $('up-start').disabled = true; setStatus('up-status', 'Working…');
+    var opt = $('up-opt').checked, entries = [];
+    seq(todo, function (f) {
+      var p = Promise.resolve(f.file);
+      if (f.kind === 'photo' && opt) { f.state = 'optimizing'; renderQueue(); p = optimizeImage(f.file); }
+      return p.then(function (file) {
+        f.state = 'pending';
+        var item = { id: Core.uid() + entries.length, kind: f.kind, title: Core.prettyTitle(f.file.name), desc: '',
+                     added: new Date().toISOString(), ext: Core.extOf(file.name), size: file.size, path: 'media/pending' };
+        entries.push({ item: item, file: file, ref: f });
+      });
+    }).then(function () {
+      return adapter.addMany(entries, function (i, state, msg) { var f = entries[i].ref; f.state = state; f.msg = msg || ''; renderQueue(); });
+    }).then(function () {
+      var done = entries.filter(function (e) { return e.ref.state === 'done'; }).length, bad = entries.length - done;
+      setStatus('up-status', done + (done === 1 ? ' file' : ' files') + ' added' + (bad ? ', ' + bad + ' failed' : '') + (ghReady() && done ? '. The live site updates in about a minute.' : '.'), bad ? 'err' : 'ok');
+      return refreshPublic();
+    }).then(loadLibrary).catch(function (e) { setStatus('up-status', e.message || 'Upload failed.', 'err'); })
+      .then(function () { renderQueue(); });
+  });
+
+  /* link modal */
+  function openLink() { $('link-form').reset(); $('ln-detect').textContent = ''; setStatus('ln-status', ''); $('modal-link').hidden = false; setTimeout(function () { $('ln-url').focus(); }, 30); }
+  function guessTitle(c) {
+    if (c.kind === 'link' && /video$/.test(c.label)) return c.label;
+    try { var last = decodeURIComponent(new URL(c.url).pathname.split('/').pop() || ''); if (last) return Core.prettyTitle(last); } catch (e) {}
+    return c.label;
+  }
+  $('ln-url').addEventListener('input', function () {
+    var c = Core.classifyUrl(this.value);
+    $('ln-detect').textContent = c ? 'Detected: ' + c.label : (this.value.trim() ? 'Enter a valid web link.' : '');
+    if (c && !$('ln-title').value.trim()) $('ln-title').value = guessTitle(c);
+  });
+  $('ln-x').addEventListener('click', closeModals);
+  $('ln-cancel').addEventListener('click', closeModals);
+  $('link-form').addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    var c = Core.classifyUrl($('ln-url').value), title = $('ln-title').value.trim();
+    if (!c) { setStatus('ln-status', 'Enter a valid http(s) link.', 'err'); return; }
+    if (!title) { setStatus('ln-status', 'Please enter a title.', 'err'); return; }
+    var item = { id: Core.uid(), kind: c.kind, title: title, desc: $('ln-desc').value.trim(), path: c.url, added: new Date().toISOString() };
+    if (c.ext) item.ext = c.ext;
+    $('ln-btn').disabled = true; setStatus('ln-status', 'Saving…');
+    var failed = '';
+    adapter.addMany([{ item: item, file: null }], function (i, state, msg) { if (state === 'error') failed = msg || 'Could not save.'; })
+      .then(function () {
+        if (failed) { setStatus('ln-status', failed, 'err'); return; }
+        closeModals(); setStatus('admin-status', ghReady() ? 'Added. The live site updates in about a minute.' : 'Added to this browser (preview mode).', 'ok');
+        return refreshPublic().then(loadLibrary);
+      }).catch(function (e) { setStatus('ln-status', e.message || 'Could not save.', 'err'); })
+      .then(function () { $('ln-btn').disabled = false; });
+  });
+
+  /* portrait */
+  $('portrait-form').addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    var f = $('portrait-file').files && $('portrait-file').files[0];
+    if (!f) { setStatus('admin-status', 'Choose a photo first.', 'err'); return; }
+    if (Core.classifyExt(Core.extOf(f.name)) !== 'photo' || /gif$/i.test(f.name)) { setStatus('admin-status', 'Use a JPG, PNG or WebP photo.', 'err'); return; }
+    if (!ghReady()) { setStatus('admin-status', 'Connect GitHub first (fill in the form above and save). The portrait is a file in your repository.', 'err'); return; }
+    $('portrait-btn').disabled = true; setStatus('admin-status', 'Uploading portrait…');
+    var g = gh();
+    optimizeImage(f).then(fileToB64).then(function (b64) {
+      return g.getFile('assets/photo.jpg').then(function (cur) { return g.putFile('assets/photo.jpg', b64, 'Update portrait', cur && cur.sha); });
+    }).then(function () { setStatus('admin-status', 'Portrait replaced. It shows on the live site after GitHub Pages rebuilds (about a minute); refresh then.', 'ok'); })
+      .catch(function (e) { setStatus('admin-status', e.message || 'Could not replace the portrait.', 'err'); })
+      .then(function () { $('portrait-btn').disabled = false; $('portrait-file').value = ''; });
+  });
+
+  /* github settings */
+  $('set-form').addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    var c = loadCfg() || {};
+    c.owner = $('set-owner').value.trim(); c.repo = $('set-repo').value.trim(); c.branch = $('set-branch').value.trim() || 'main';
+    if (!/^[A-Za-z0-9-]+$/.test(c.owner) || !/^[A-Za-z0-9._-]+$/.test(c.repo)) { setStatus('admin-status', 'Check the username and repository name.', 'err'); return; }
+    var tok = $('set-token').value.trim();
+    var done = function () {
+      if (!saveCfg(c)) { setStatus('admin-status', 'Could not save settings in this browser.', 'err'); return; }
+      $('set-token').value = ''; renderModeNote();
+      setStatus('admin-status', ghReady() ? 'Saved. Use "Test connection" to check access.' : 'Saved. Add a token to switch to GitHub mode.', 'ok');
+    };
+    if (tok) {
+      Core.encryptText(admin.key, tok).then(function (o) { c.tok = o; admin.token = tok; done(); })
+        .catch(function () { setStatus('admin-status', 'Could not encrypt the token.', 'err'); });
+    } else { done(); }
+  });
+  $('set-test').addEventListener('click', function () {
+    if (!ghReady()) { setStatus('admin-status', 'Save your username, repository and token first.', 'err'); return; }
+    setStatus('admin-status', 'Testing…');
+    gh().test().then(function () { setStatus('admin-status', 'Connection OK. The token can write to the repository.', 'ok'); })
+      .catch(function (e) { setStatus('admin-status', e.message, 'err'); });
+  });
+  $('set-forget').addEventListener('click', function () {
+    var c = loadCfg() || {}; delete c.tok; admin.token = null; saveCfg(c); renderModeNote(); fillSettings();
+    setStatus('admin-status', 'Token removed from this device.', 'ok');
+  });
+
+  refreshPublic();
+  route();
+
+  /* ---------- 3D ---------- */
+  var reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  if (typeof THREE === 'undefined') { document.documentElement.classList.add('no-3d'); return; }
+  var canvas = $('stage');
+  var renderer;
+  try { renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true }); }
+  catch (err) { document.documentElement.classList.add('no-3d'); return; }
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  renderer.outputEncoding = THREE.sRGBEncoding;
+
+  var scene = new THREE.Scene();
+  var camera = new THREE.PerspectiveCamera(35, 1, 0.1, 100);
+  camera.position.set(0, 0, 8);
+  var TAN = Math.tan(THREE.MathUtils.degToRad(35 / 2));
+  var visW = 9, visH = 5, narrow = false;
+
+  scene.add(new THREE.AmbientLight(0xffffff, 0.6));
+  var key = new THREE.DirectionalLight(0xffffff, 0.95); key.position.set(2, 3, 5); scene.add(key);
+  var rim = new THREE.PointLight(0x8b5cf6, 2.4, 22); rim.position.set(-3, 1.5, -2); scene.add(rim);
+  var fill = new THREE.PointLight(0x38bdf8, 1.0, 22); fill.position.set(4, -1, 3); scene.add(fill);
+
+  var starCount = 700, starPos = new Float32Array(starCount * 3);
+  for (var s = 0; s < starCount; s++) {
+    starPos[s * 3] = (Math.random() - 0.5) * 32;
+    starPos[s * 3 + 1] = (Math.random() - 0.5) * 32;
+    starPos[s * 3 + 2] = -4 - Math.random() * 14;
+  }
+  var starGeo = new THREE.BufferGeometry();
+  starGeo.setAttribute('position', new THREE.BufferAttribute(starPos, 3));
+  var stars = new THREE.Points(starGeo, new THREE.PointsMaterial({ color: 0xcfc8ff, size: 0.05, transparent: true, opacity: 0.7, depthWrite: false }));
+  scene.add(stars);
+
+  function glowTexture() {
+    var c = document.createElement('canvas'); c.width = c.height = 256;
+    var g = c.getContext('2d'), gr = g.createRadialGradient(128, 128, 0, 128, 128, 128);
+    gr.addColorStop(0, 'rgba(139,92,246,0.80)'); gr.addColorStop(0.45, 'rgba(99,60,200,0.28)'); gr.addColorStop(1, 'rgba(40,20,90,0)');
+    g.fillStyle = gr; g.fillRect(0, 0, 256, 256);
+    var t = new THREE.CanvasTexture(c); t.encoding = THREE.sRGBEncoding; return t;
+  }
+  function rrPath(g, x, y, w, h, r) {
+    g.beginPath(); g.moveTo(x + r, y);
+    g.arcTo(x + w, y, x + w, y + h, r); g.arcTo(x + w, y + h, x, y + h, r);
+    g.arcTo(x, y + h, x, y, r); g.arcTo(x, y, x + w, y, r); g.closePath();
+  }
+
+  var rig = new THREE.Group(); scene.add(rig);
+  var glow = new THREE.Sprite(new THREE.SpriteMaterial({ map: glowTexture(), transparent: true, blending: THREE.AdditiveBlending, depthWrite: false }));
+  glow.scale.set(8, 8, 1); glow.position.set(0, -0.1, -1.6); rig.add(glow);
+
+  var ringMat = new THREE.MeshBasicMaterial({ color: 0xA78BFA, transparent: true, opacity: 0.32 });
+  var ring1 = new THREE.Mesh(new THREE.TorusGeometry(2.7, 0.012, 8, 120), ringMat);
+  var ring2 = new THREE.Mesh(new THREE.TorusGeometry(3.2, 0.01, 8, 120), ringMat);
+  ring1.rotation.set(1.25, 0.2, 0); ring2.rotation.set(1.0, -0.5, 0);
+  rig.add(ring1); rig.add(ring2);
+
+  /* photo card */
+  var CARD_W = 2.4, CARD_H = 3.6, PX = 200;
+  var card = new THREE.Group(); rig.add(card);
+
+  var fc = document.createElement('canvas'); fc.width = Math.round((CARD_W + 0.34) * PX); fc.height = Math.round((CARD_H + 0.34) * PX);
+  var fg = fc.getContext('2d'), grad = fg.createLinearGradient(0, 0, fc.width, fc.height);
+  grad.addColorStop(0, '#A78BFA'); grad.addColorStop(1, '#38BDF8');
+  fg.strokeStyle = grad; fg.lineWidth = 3; fg.shadowColor = 'rgba(139,92,246,0.9)'; fg.shadowBlur = 22;
+  rrPath(fg, 18, 18, fc.width - 36, fc.height - 36, 52); fg.stroke();
+  var frameTex = new THREE.CanvasTexture(fc); frameTex.encoding = THREE.sRGBEncoding;
+  var frameMesh = new THREE.Mesh(new THREE.PlaneGeometry(CARD_W + 0.34, CARD_H + 0.34), new THREE.MeshBasicMaterial({ map: frameTex, transparent: true, depthWrite: false }));
+  frameMesh.position.z = -0.04; card.add(frameMesh);
+
+  var mc = document.createElement('canvas'); mc.width = Math.round(CARD_W * PX); mc.height = Math.round(CARD_H * PX);
+  var mg = mc.getContext('2d'); mg.fillStyle = '#000'; mg.fillRect(0, 0, mc.width, mc.height);
+  mg.fillStyle = '#fff'; rrPath(mg, 0, 0, mc.width, mc.height, 38); mg.fill();
+  var photoMat = new THREE.MeshBasicMaterial({ color: 0x1a1830, alphaMap: new THREE.CanvasTexture(mc), transparent: true });
+  var photo = new THREE.Mesh(new THREE.PlaneGeometry(CARD_W, CARD_H), photoMat); card.add(photo);
+  var photoUrl = /^data:/.test(PHOTO_SRC) ? PHOTO_SRC : PHOTO_SRC + '?t=' + Math.floor(Date.now() / 600000);
+  new THREE.TextureLoader().load(photoUrl, function (t) {
+    t.encoding = THREE.sRGBEncoding; t.minFilter = THREE.LinearFilter; t.generateMipmaps = false; t.anisotropy = 4;
+    var im = t.image, ar = (im && im.width && im.height) ? im.width / im.height : CARD_W / CARD_H, target = CARD_W / CARD_H;
+    if (ar > target) { t.repeat.set(target / ar, 1); t.offset.set((1 - target / ar) / 2, 0); }
+    else { t.repeat.set(1, ar / target); t.offset.set(0, (1 - ar / target) / 2); }
+    photoMat.map = t; photoMat.color.set(0xffffff); photoMat.needsUpdate = true;
+  });
+
+  var chips = [], chipBase = [[1.5, 1.2, 0.6], [-1.55, -0.1, 0.7], [1.4, -1.3, 0.5]];
+  CHIPS.forEach(function (text, i) {
+    var c = document.createElement('canvas'); c.width = 512; c.height = 128;
+    var g = c.getContext('2d');
+    g.fillStyle = 'rgba(16,14,28,0.9)'; rrPath(g, 4, 4, 504, 120, 60); g.fill();
+    g.strokeStyle = '#8B5CF6'; g.lineWidth = 3; g.stroke();
+    g.fillStyle = '#EDEBF7'; g.font = '500 44px "JetBrains Mono", ui-monospace, monospace'; g.textAlign = 'center'; g.textBaseline = 'middle';
+    g.fillText(text, 256, 66);
+    var tex = new THREE.CanvasTexture(c); tex.encoding = THREE.sRGBEncoding;
+    var m = new THREE.Mesh(new THREE.PlaneGeometry(1.45, 0.36), new THREE.MeshBasicMaterial({ map: tex, transparent: true, depthWrite: false }));
+    m.position.set(chipBase[i][0], chipBase[i][1], chipBase[i][2]); card.add(m); chips.push(m);
+  });
+
+  /* scroll keyframes: x = fraction of half the visible width */
+  var KF_D = [
+    { x: -0.30, y: 0.10,  s: 1.00, ry: 0.20 },   // hero
+    { x: -0.34, y: 0.10,  s: 1.00, ry: 0.45 },   // about
+    { x: -0.78, y: 0.00,  s: 0.60, ry: 0.50 },   // skills
+    { x: -0.60, y: 0.15,  s: 0.78, ry: 0.40 },   // experience
+    { x: -0.78, y: -0.10, s: 0.60, ry: 0.50 },   // projects
+    { x: -0.78, y: -0.10, s: 0.55, ry: 0.50 },   // media
+    { x: -0.50, y: -5.20, s: 0.70, ry: 0.30 },   // tech (leaves the frame)
+    { x: 0.44,  y: 0.10,  s: 0.95, ry: -0.40 }   // contact
+  ];
+  var KF_M = [
+    { x: 0, y: 0.95, s: 0.62, ry: 0.15 }, { x: 0, y: 1.30, s: 0.42, ry: 0.25 }, { x: 0, y: 1.35, s: 0.40, ry: 0.25 },
+    { x: 0, y: 1.35, s: 0.40, ry: 0.25 }, { x: 0, y: 1.35, s: 0.40, ry: 0.25 }, { x: 0, y: 1.35, s: 0.40, ry: 0.25 },
+    { x: 0, y: -5.5, s: 0.50, ry: 0.25 }, { x: 0, y: 1.20, s: 0.50, ry: -0.15 }
+  ];
+  var cur = { x: KF_D[0].x, y: KF_D[0].y, s: KF_D[0].s, ry: KF_D[0].ry };
+
+  function sampleKF(y) {
+    var kfs = narrow ? KF_M : KF_D, a = anchors, n = a.length;
+    var p = kfs[0], q = kfs[0], t = 0;
+    if (y >= a[n - 1]) { p = q = kfs[n - 1]; }
+    else if (y > a[0]) {
+      for (var i = 0; i < n - 1; i++) {
+        if (y >= a[i] && y < a[i + 1]) { p = kfs[i]; q = kfs[i + 1]; t = (y - a[i]) / (a[i + 1] - a[i]); break; }
+      }
+    }
+    var u = clamp((t - 0.2) / 0.6, 0, 1); u = u * u * (3 - 2 * u);
+    return { x: p.x + (q.x - p.x) * u, y: p.y + (q.y - p.y) * u, s: p.s + (q.s - p.s) * u, ry: p.ry + (q.ry - p.ry) * u };
+  }
+
+  /* tech spheres */
+  var ballGroup = new THREE.Group(); ballGroup.visible = false; scene.add(ballGroup);
+  var balls = [], ballActive = false, ballR = 0.52;
+  var BALL_GEO = new THREE.SphereGeometry(0.55, 32, 24);
+
+  function labelTexture(text, accent) {
+    var c = document.createElement('canvas'); c.width = 1024; c.height = 512;
+    var g = c.getContext('2d');
+    g.fillStyle = '#F3F1FF'; g.fillRect(0, 0, 1024, 512);
+    g.fillStyle = accent; g.fillRect(0, 0, 1024, 70); g.fillRect(0, 442, 1024, 70);
+    g.fillStyle = '#1B1740'; g.textAlign = 'center'; g.textBaseline = 'middle';
+    var size = 88;
+    do { g.font = '700 ' + size + 'px "Space Grotesk", system-ui, sans-serif'; size -= 4; } while (g.measureText(text).width > 290 && size > 24);
+    g.fillText(text, 512, 256);
+    var t = new THREE.CanvasTexture(c); t.encoding = THREE.sRGBEncoding; t.anisotropy = 4; return t;
+  }
+  function buildBalls() {
+    TECH.forEach(function (name, i) {
+      var m = new THREE.Mesh(BALL_GEO, new THREE.MeshStandardMaterial({ map: labelTexture(name, PALETTE[i % PALETTE.length]), roughness: 0.35, metalness: 0.05 }));
+      m.rotation.y = -Math.PI / 2; ballGroup.add(m);
+      balls.push({ mesh: m, x: 0, y: 0, vx: 0, vy: 0, ph: Math.random() * 6.28 });
+    });
+    layoutBalls();
+  }
+  function layoutBalls() {
+    ballR = narrow ? 0.34 : 0.52;
+    var k = ballR / 0.55;
+    balls.forEach(function (b) { b.mesh.scale.set(k, k, k); b.x = clamp(b.x, -visW / 2 + ballR, visW / 2 - ballR); });
+  }
+  function resetBalls() {
+    balls.forEach(function (b, i) {
+      b.x = (Math.random() - 0.5) * (visW - 2 * ballR) * 0.85;
+      b.y = visH / 2 + ballR + i * (ballR * 1.6);
+      b.vx = (Math.random() - 0.5) * 1.2; b.vy = -Math.random();
+    });
+  }
+  function stepBalls(dt, mx, my) {
+    var halfW = visW / 2, halfH = visH / 2, r = ballR, i, j, b, c;
+    for (i = 0; i < balls.length; i++) {
+      b = balls[i]; b.vy -= 9 * dt;
+      var dx = b.x - mx, dy = b.y - my, d = Math.sqrt(dx * dx + dy * dy), R = r + 0.9;
+      if (d < R && d > 1e-4) { var f = (1 - d / R) * 42 * dt; b.vx += (dx / d) * f; b.vy += (dy / d) * f; }
+      b.vx *= 1 - 0.35 * dt; b.vy *= 1 - 0.25 * dt;
+      b.x += b.vx * dt; b.y += b.vy * dt;
+      if (b.x < -halfW + r) { b.x = -halfW + r; b.vx = Math.abs(b.vx) * 0.6; }
+      if (b.x > halfW - r) { b.x = halfW - r; b.vx = -Math.abs(b.vx) * 0.6; }
+      if (b.y < -halfH + r) { b.y = -halfH + r; b.vy = Math.abs(b.vy) * 0.5; if (b.vy < 0.4) b.vy = 0; b.vx *= 1 - 3 * dt; }
+    }
+    for (i = 0; i < balls.length; i++) {
+      for (j = i + 1; j < balls.length; j++) {
+        b = balls[i]; c = balls[j];
+        var ddx = c.x - b.x, ddy = c.y - b.y, dist = Math.sqrt(ddx * ddx + ddy * ddy), min = 2 * r;
+        if (dist < min && dist > 1e-5) {
+          var nx = ddx / dist, ny = ddy / dist, ov = (min - dist) * 0.5;
+          b.x -= nx * ov; b.y -= ny * ov; c.x += nx * ov; c.y += ny * ov;
+          var vn = (b.vx - c.vx) * nx + (b.vy - c.vy) * ny;
+          if (vn > 0) { var imp = vn * 1.45 * 0.5; b.vx -= imp * nx; b.vy -= imp * ny; c.vx += imp * nx; c.vy += imp * ny; }
+        }
+      }
+    }
+  }
+  var fontsReady = (document.fonts && document.fonts.load) ? document.fonts.load('700 40px "Space Grotesk"').catch(function () {}) : Promise.resolve();
+  fontsReady.then(buildBalls);
+
+  var mouse = { x: 0, y: 0 }, mouseS = { x: 0, y: 0 };
+  window.addEventListener('pointermove', function (e) { mouse.x = (e.clientX / W) * 2 - 1; mouse.y = -((e.clientY / H) * 2 - 1); }, { passive: true });
+
+  function resize() {
+    W = window.innerWidth; H = window.innerHeight;
+    renderer.setSize(W, H, false);
+    camera.aspect = W / H; camera.updateProjectionMatrix();
+    visH = 2 * TAN * camera.position.z; visW = visH * camera.aspect;
+    narrow = W < 820;
+    chips.forEach(function (c) { c.visible = !narrow; });
+    layoutBalls(); computeAnchors(); updateDots();
+  }
+  var resizeQueued = false;
+  window.addEventListener('resize', function () {
+    if (resizeQueued) return; resizeQueued = true;
+    requestAnimationFrame(function () { resizeQueued = false; resize(); });
+  });
+  window.addEventListener('load', function () { computeAnchors(); updateDots(); });
+  if ('ResizeObserver' in window) new ResizeObserver(function () { computeAnchors(); }).observe(document.body);
+  resize();
+
+  var last = performance.now();
+  function frame(now) {
+    var dt = Math.min((now - last) / 1000, 1 / 20); last = now;
+    var t = now / 1000, sy = getY();
+    rig.visible = !galleryOn;
+    var km = 1 - Math.exp(-dt * 6);
+    mouseS.x += ((reduce ? 0 : mouse.x) - mouseS.x) * km;
+    mouseS.y += ((reduce ? 0 : mouse.y) - mouseS.y) * km;
+
+    var tgt = sampleKF(sy), k = 1 - Math.exp(-dt * 5);
+    cur.x += (tgt.x - cur.x) * k; cur.y += (tgt.y - cur.y) * k; cur.s += (tgt.s - cur.s) * k; cur.ry += (tgt.ry - cur.ry) * k;
+    rig.position.set(cur.x * (visW / 2), cur.y, 0);
+    rig.scale.setScalar(Math.max(cur.s, 0.0001));
+    card.rotation.y = cur.ry * 0.5 + mouseS.x * 0.28;
+    card.rotation.x = -mouseS.y * 0.16;
+    card.position.y = reduce ? 0 : Math.sin(t * 1.1) * 0.05;
+    for (var c = 0; c < chips.length; c++) {
+      chips[c].position.y = chipBase[c][1] + (reduce ? 0 : Math.sin(t * 1.3 + c * 1.7) * 0.06);
+    }
+    ring1.rotation.z += dt * 0.25; ring2.rotation.z -= dt * 0.18;
+    stars.rotation.y = reduce ? 0 : t * 0.01; stars.position.y = sy * 0.0025;
+
+    camera.position.x = mouseS.x * 0.25; camera.position.y = mouseS.y * 0.15; camera.lookAt(0, 0, 0);
+
+    if (galleryOn) { ballActive = false; ballGroup.visible = false; }
+    else if (balls.length) {
+      var techF = clamp(1 - Math.abs(sy - anchors[TECH_IDX]) / (H * 0.8), 0, 1);
+      if (!ballActive && techF > 0.5) { resetBalls(); ballActive = true; ballGroup.visible = true; }
+      else if (ballActive && techF < 0.15) { ballActive = false; ballGroup.visible = false; }
+      if (ballActive) {
+        var mx = mouse.x * (visW / 2), my = mouse.y * (visH / 2), steps = 2, h = dt / steps;
+        for (var st = 0; st < steps; st++) stepBalls(h, mx, my);
+        for (var i = 0; i < balls.length; i++) {
+          var b = balls[i]; b.mesh.position.set(b.x, b.y, 0);
+          if (!reduce) {
+            b.mesh.rotation.y = -Math.PI / 2 + Math.sin(t * 0.8 + b.ph) * 0.25 + b.vx * 0.05;
+            b.mesh.rotation.x = Math.sin(t * 0.6 + b.ph) * 0.12;
+          }
+        }
+      }
+    }
+    renderer.render(scene, camera);
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

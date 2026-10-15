@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "id": "p1",
+      "kind": "photo",
+      "title": "Rooftop radio installation",
+      "desc": "",
+      "path": "media/field-01-rooftop-radio.jpg",
+      "ext": "jpg",
+      "size": 267141,
+      "added": "2026-10-13T00:00:10Z"
+    },
+    {
+      "id": "p2",
+      "kind": "photo",
+      "title": "Radios and dishes on a mast",
+      "desc": "",
+      "path": "media/field-02-radios-on-mast.jpg",
+      "ext": "jpg",
+      "size": 130912,
+      "added": "2026-10-13T00:00:09Z"
+    },
+    {
+      "id": "p3",
+      "kind": "photo",
+      "title": "On site at Port Autonome de Douala",
+      "desc": "",
+      "path": "media/field-03-port-of-douala.jpg",
+      "ext": "jpg",
+      "size": 156288,
+      "added": "2026-10-13T00:00:08Z"
+    },
+    {
+      "id": "p4",
+      "kind": "photo",
+      "title": "Radio installation on a tower",
+      "desc": "",
+      "path": "media/field-04-tower-radio-install.jpg",
+      "ext": "jpg",
+      "size": 154144,
+      "added": "2026-10-13T00:00:07Z"
+    },
+    {
+      "id": "cv",
+      "kind": "document",
+      "title": "Curriculum Vitae",
+      "desc": "Network Administration & Security \u00b7 IT Audit \u00b7 Cybersecurity",
+      "path": "media/Curriculum_Vitae_Kouegoue_Nana_Wilfried.pdf",
+      "ext": "pdf",
+      "size": 127501,
+      "added": "2026-10-13T00:00:00.000Z"
+    }
+  ]
+}
