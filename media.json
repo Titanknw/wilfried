@@ -2,6 +2,86 @@
   "version": 1,
   "items": [
     {
+      "id": "mwuuybre8kr50",
+      "kind": "photo",
+      "title": "Photo 2026 10 08 13 38 33",
+      "desc": "",
+      "added": "2026-11-24T15:37:00.170Z",
+      "ext": "jpg",
+      "size": 161988,
+      "path": "media/mwuuybre8kr50-photo_2026-10-08_13-38-33.jpg"
+    },
+    {
+      "id": "mwuuybuikwo41",
+      "kind": "photo",
+      "title": "Photo 2026 10 08 13 38 34",
+      "desc": "",
+      "added": "2026-11-24T15:37:00.282Z",
+      "ext": "jpg",
+      "size": 222637,
+      "path": "media/mwuuybuikwo41-photo_2026-10-08_13-38-34.jpg"
+    },
+    {
+      "id": "mwuuybxpyl9s2",
+      "kind": "photo",
+      "title": "Photo 2026 10 08 13 38 35 (2)",
+      "desc": "",
+      "added": "2026-11-24T15:37:00.397Z",
+      "ext": "jpg",
+      "size": 136134,
+      "path": "media/mwuuybxpyl9s2-photo_2026-10-08_13-38-35_2_.jpg"
+    },
+    {
+      "id": "mwuuyc0x7hc53",
+      "kind": "photo",
+      "title": "Photo 2026 10 08 13 38 35",
+      "desc": "",
+      "added": "2026-11-24T15:37:00.513Z",
+      "ext": "jpg",
+      "size": 160174,
+      "path": "media/mwuuyc0x7hc53-photo_2026-10-08_13-38-35.jpg"
+    },
+    {
+      "id": "mwuuyc42ybe04",
+      "kind": "photo",
+      "title": "Photo 2026 10 08 13 38 44",
+      "desc": "",
+      "added": "2026-11-24T15:37:00.626Z",
+      "ext": "jpg",
+      "size": 186274,
+      "path": "media/mwuuyc42ybe04-photo_2026-10-08_13-38-44.jpg"
+    },
+    {
+      "id": "mwuuyc796kjg5",
+      "kind": "photo",
+      "title": "Photo 2026 11 24 16 17 25",
+      "desc": "",
+      "added": "2026-11-24T15:37:00.741Z",
+      "ext": "jpg",
+      "size": 200418,
+      "path": "media/mwuuyc796kjg5-photo_2026-11-24_16-17-25.jpg"
+    },
+    {
+      "id": "mwuuycac7tj36",
+      "kind": "photo",
+      "title": "Photo 2026 11 24 16 17 41",
+      "desc": "",
+      "added": "2026-11-24T15:37:00.852Z",
+      "ext": "jpg",
+      "size": 184339,
+      "path": "media/mwuuycac7tj36-photo_2026-11-24_16-17-41.jpg"
+    },
+    {
+      "id": "mwuuycdj6jvh7",
+      "kind": "photo",
+      "title": "Photo 2026 11 24 16 17 55",
+      "desc": "",
+      "added": "2026-11-24T15:37:00.967Z",
+      "ext": "jpg",
+      "size": 40458,
+      "path": "media/mwuuycdj6jvh7-photo_2026-11-24_16-17-55.jpg"
+    },
+    {
       "id": "cv",
       "kind": "document",
       "title": "Curriculum Vitae",
